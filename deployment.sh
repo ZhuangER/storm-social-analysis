@@ -23,7 +23,7 @@ echo "Storm..."
 sudo mkdir /opt/storm
 cd /opt/storm
 sudo wget http://apache.mirror.gtcomm.net/storm/apache-storm-0.9.6/apache-storm-0.9.6.tar.gz
-sudo tar xvzf apache-storm-0.9.6-src.tar.gz
-sudo rm apache-storm-0.9.6-src.tar.gz
+sudo tar xvzf apache-storm-0.9.6.tar.gz
+sudo rm apache-storm-0.9.6.tar.gz
 sudo chmod +x /opt/storm/apache-storm-0.9.6/bin/storm
 sudo ln -s /opt/storm/apache-storm-0.9.6/bin/storm /usr/bin/storm
