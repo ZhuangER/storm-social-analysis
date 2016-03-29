@@ -16,15 +16,11 @@ def event_stream():
 @app.route('/map')
 def show_map():
   #Basic d3 view = basic.html and app.js
-    return render_template("us_map.html")
+    return render_template("world_map.html")
 
 @app.route('/ca_map')
 def ca_map():
 	return render_template("ca_map.html")
-
-@app.route('/test')
-def test():
-	return render_template("test.html")
 
 
 @app.route('/stream')

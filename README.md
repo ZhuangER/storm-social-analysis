@@ -20,6 +20,15 @@ Built on Microsoft Azure HDInsight, Ubuntu 14.04LTS
 
 # Build Maps
 
+Map standard: Mercator
+Map scope: world
+
+# visualization
+basic map 
+image
+
+Bubbles
+
 
 
 

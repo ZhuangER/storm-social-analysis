@@ -85,13 +85,13 @@ public class TopWords extends BaseRichBolt
 		String noun = tuple.getStringByField("noun");
 		String verb = tuple.getStringByField("verb");
 		String dO = tuple.getStringByField("object");
-		//String county = (String) tuple.getStringByField("county_id");
+
 		String geoinfo = tuple.getStringByField("geoinfo");
 		String url = tuple.getStringByField("url");
 		String matchedEmoticon = tuple.getStringByField("matchedEmoticon");
 		int matchedEmoticonScore = tuple.getIntegerByField("matchedEmoticonScore");
 		int sentiment = tuple.getIntegerByField("sentiment");
-		String sentimentKey = String.valueOf(sentiment);
+		String sentimentKey = geoinfo + " " + String.valueOf(sentiment);
 		double reportSentiment = 0.5;
 		//SentimentAnalyzer.findSentiment(tweet);
 		

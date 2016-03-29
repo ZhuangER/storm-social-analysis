@@ -2,143 +2,39 @@
 <meta charset="utf-8">
 <style>
 
-.counties {
-  fill: none;
+body {
+  font: 12px sans-serif;
 }
 
-.states {
-  fill: none;
-  stroke: #fff;
-  stroke-linejoin: round;
+path {
+  stroke-width: 1px;
+  stroke: white;
+  fill: steelblue;
+  cursor: pointer;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+path:hover, path.highlighted {
+  fill: tomato;
+}
+
+div.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  padding: 4px 8px;
+  display: none;
+}
+
 
 </style>
 <body>
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
-<script src="http://datamaps.github.io/scripts/0.4.4/datamaps.world.min.js"></script>
-
-<div id="container" style="position: relative; width: 1600px; height: 700px;"></div>
-<script>
-
-var colors = 
-    [ "#0000FF",
-      "#0066FF",
-      "#3399FF",
-      "#66CCFF",
-      "#CCFFFF",
-      "#CCFFCC",
-      "#FFFFCC",
-      "#FFFF99",
-      "#FFFF66",
-      "#FFFF00",
-      "#FFFF00"];
-      var source = new EventSource('/stream');
-      var hashSentence = {};
-      var hashSentiment = {};
-
-      source.onmessage = function (event) {
-        var geoinfo = event.data.split("DELIMITER")[0];
-        var sentence = event.data.split("DELIMITER")[1];
-        var sentiment = event.data.split("DELIMITER")[2];
-        
-        //var point = [latitude, longitude];
-        //console.log("NEW DATA IS HERE " + event.data);
-
-        hashSentence[geoinfo]=sentence;
-        hashSentiment[geoinfo]=sentiment;
-        //hashURLInfo[county_id]=URLInfo;
-
-      };
-
-var projection, path;
-     var map = new Datamap({
-        element: document.getElementById('container'),
-        scope: 'world',
-        setProjection: function(element, options) {
-            
-            projection = d3.geo.mercator()
-                .scale((element.offsetWidth + 1) / 2 / Math.PI)
-                .translate([element.offsetWidth / 2, element.offsetHeight / 1.45 ]);
-
-            path = d3.geo.path()
-                .projection( projection );
-
-            return {path: path, projection: projection};
-        },
-        fills: {
-            defaultFill: 'green'
-        },
-
-        data: {
-        }
-
-    });
-
- var bombs = [{
-        
-
-        latitude: 50.0712321,
-        longitude: 78.4312312,
-        radius: 25
-      },{
-
-
-        latitude: 50.0712321312,
-        longitude: 78.43123123,
-                radius: 40
-
-      },{
-        radius: 75,
-        latitude: 73.4821232131,
-        longitude: 54.585412321321
-      }
-    ];
-
-/*map.bubbles(bombs
-);*/
-
-
-var tweetlist = [];
-
-var updateViz =  function(){
-
-    for(key in hashSentiment)
-    {
-
-        console.log("REFRESH: " + key + ":" + hashSentiment[key]);
-        var data = {}; 
-
-        if(hashSentiment[key])
-        {
-          var latitude = parseFloat(key.split(",")[0]);
-          var longitude = parseFloat(key.split(",")[1]);
-          if (longitude && latitude){
-          tweetlist.push({latitude: latitude, longitude: longitude, radius: 50});
-          
-          //data[key] = colors[Math.round(hashSentiment[key]*10)];
-          map.bubbles(tweetlist);
-          console.log("draw" + {name: hashSentence[key], latitude: latitude, longitude: longitude, radius: 20});
-          }
-        }
-    }
-
-    hashSentiment = {};
-}
-
-window.setInterval(updateViz, 5000);
-
-</script>
-
+<script src="http://datamaps.github.io/scripts/datamaps.usa.js?v=1"></script>
+<script src="/static/js/ca_map.js"></script>
 
 </body>
