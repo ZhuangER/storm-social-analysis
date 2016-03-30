@@ -2,25 +2,17 @@
 <meta charset="utf-8">
 <style>
 
-.counties {
-  fill: none;
+svg.datamap{
+  background: black;
 }
 
-.states {
-  fill: none;
-  stroke: #fff;
-  stroke-linejoin: round;
+html {
+  background: black;
 }
 
-.q0-9 { fill:rgb(247,251,255); }
-.q1-9 { fill:rgb(222,235,247); }
-.q2-9 { fill:rgb(198,219,239); }
-.q3-9 { fill:rgb(158,202,225); }
-.q4-9 { fill:rgb(107,174,214); }
-.q5-9 { fill:rgb(66,146,198); }
-.q6-9 { fill:rgb(33,113,181); }
-.q7-9 { fill:rgb(8,81,156); }
-.q8-9 { fill:rgb(8,48,107); }
+#datamaps-bubble {
+  background: -webkit-gradient(radial, 50% 50%, 50, 50% 50%, 70, from(rgba(255,255,255,0)), to(rgba(255,255,255,1)));
+}
 
 </style>
 <body>
@@ -28,7 +20,7 @@
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script src="http://datamaps.github.io/scripts/0.4.4/datamaps.world.min.js"></script>
 
-<div id="container" style="position: relative; width: 1600px; height: 700px;"></div>
+<div id="container" style="position: relative; width: 1600px; height: 1000px;"></div>
 <script>
 
 var colors = 
@@ -88,10 +80,28 @@ var projection, path;
             "sentiment8":"#FFFF66",
             "sentiment9":"#FFFF00",
             "sentiment10":"#FFFF00",
-            defaultFill: 'green'
+            defaultFill: 'black'
         },
 
         data: {
+        },
+
+        geographyConfig: {
+          highlightOnHover: true,
+          highlightFillColor: '#02AF9C',
+          borderWidth: 2,
+          borderOpacity: 0.5,
+          highlightBorderOpacity: 0.5,
+        },
+
+        bubblesConfig: {
+          borderWidth: 5,
+          borderOpacity: 0.3,
+          fillOpacity: 0.75,
+          hightlightBorderWidth: 0,
+          /*highlightFillOpacity: 0.3,*/
+          highlightBorderOpacity: 0.3,
+          animate: true
         }
 
     });
@@ -113,7 +123,7 @@ var updateViz =  function(){
           var latitude = parseFloat(key.split(",")[0]);
           var longitude = parseFloat(key.split(",")[1]);
           if (longitude && latitude){
-          tweetlist.push({latitude: latitude, longitude: longitude, radius: 20, sentence: hashSentence[key], fillKey: 'sentiment' + Math.round(hashSentiment[key]*10).toString()});
+          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], fillKey: 'sentiment' + Math.round(hashSentiment[key]*10).toString()});
           
           //data[key] = colors[Math.round(hashSentiment[key]*10)];
           //draw bubbles
