@@ -147,7 +147,8 @@ public class TweetSpout extends BaseRichSpout
     // get an instance of twitter stream
     twitterStream = fact.getInstance();    
     
-    FilterQuery tweetFilterQuery = new FilterQuery(); // See 
+    //filter non-english tweets
+    FilterQuery tweetFilterQuery = new FilterQuery(); 
     tweetFilterQuery.locations(new double[][]{new double[]{-124.848974,24.396308},
                     new double[]{-66.885444,49.384358
                     }}); 
