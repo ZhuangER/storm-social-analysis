@@ -97,6 +97,7 @@ public class InfoBolt extends BaseRichBolt
     String geoinfo = tuple.getStringByField("geoinfo");
     String url = tuple.getStringByField("url");
     int sentiment = tuple.getIntegerByField("sentiment");
+    String countryName = tuple.getStringByField("countryName");
     
 /*      
     emoticonAndScore = getScoreIfEmoticonPresent(originalTweet);
@@ -108,7 +109,7 @@ public class InfoBolt extends BaseRichBolt
 
 	collector.emit(new Values(originalTweet,word,noun,verb,object,county_id,url,matchedEmoticonScore, matchedEmoticon, sentiment));*/
 
-	collector.emit(new Values(originalTweet,word,noun,verb,object, geoinfo,url,0, "", sentiment));
+	collector.emit(new Values(originalTweet,word,noun,verb,object, geoinfo,url,0, "", sentiment, countryName));
 	
 	  } catch(Exception e) {
 		  e.printStackTrace();
@@ -196,6 +197,6 @@ public class InfoBolt extends BaseRichBolt
     // declare the first column 'word', second column 'count'
     //outputFieldsDeclarer.declare(new Fields("word","count"));
 
-	outputFieldsDeclarer.declare(new Fields("original-tweet", "tweet-word", "noun", "verb", "object", "geoinfo", "url", "matchedEmoticonScore", "matchedEmoticon", "sentiment"));
+	outputFieldsDeclarer.declare(new Fields("original-tweet", "tweet-word", "noun", "verb", "object", "geoinfo", "url", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
   }
 }

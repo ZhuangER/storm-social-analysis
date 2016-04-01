@@ -93,6 +93,7 @@ public class TopWords extends BaseRichBolt
 		int sentiment = tuple.getIntegerByField("sentiment");
 		String sentimentKey = geoinfo + " " + String.valueOf(sentiment);
 		double reportSentiment = 0.5;
+		String countryName = tuple.getStringByField("countryName");
 		//SentimentAnalyzer.findSentiment(tweet);
 		
 		
@@ -152,8 +153,8 @@ public class TopWords extends BaseRichBolt
 			countDO.put(dO,val);
 		}
 		 */
-		System.out.println("\t\tTopWords\tDEBUG EMIT Tweet " + tweetWord + ", matcedEmoticon: " + matchedEmoticon + ", sentimentKey: " + sentimentKey + ", reportSentiment: " + reportSentiment);
-		collector.emit(new Values(tweet, tweetWord, mNoun, mVerb, mDO, geoinfo, url, matchedEmoticonScore, matchedEmoticon, reportSentiment));
+		System.out.println("\t\tTopWords\tDEBUG EMIT Tweet " + tweetWord + ", matcedEmoticon: " + matchedEmoticon + ", sentimentKey: " + sentimentKey + ", reportSentiment: " + reportSentiment + ", countryName: " + countryName);
+		collector.emit(new Values(tweet, tweetWord, mNoun, mVerb, mDO, geoinfo, url, matchedEmoticonScore, matchedEmoticon, reportSentiment, countryName));
 
 	}
 
@@ -163,7 +164,7 @@ public class TopWords extends BaseRichBolt
 		
 		
 		outputFieldsDeclarer.declare(
-				new Fields("tweet", "tweetWord", "noun", "verb" , "do", "geoinfo","url", "matchedEmoticonScore", "matchedEmoticon", "sentiment"));
+				new Fields("tweet", "tweetWord", "noun", "verb" , "do", "geoinfo","url", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
 	}
 
 }

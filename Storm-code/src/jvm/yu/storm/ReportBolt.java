@@ -109,6 +109,7 @@ public class ReportBolt extends BaseRichBolt
     String url = tuple.getStringByField("url");
     double matchedEmoticonScore= tuple.getIntegerByField("matchedEmoticonScore")*1.0;
     double sentiment = tuple.getDoubleByField("sentiment");
+    String countryName = tuple.getStringByField("countryName");
     System.out.println("\t\t\tDEBUG ReportBolt: " + String.valueOf(matchedEmoticonScore) + ", Tweet Sentiment:" + String.valueOf(sentiment) + "URL: " + getMostFrequentURL());
     
     
@@ -120,7 +121,7 @@ public class ReportBolt extends BaseRichBolt
     sentimentURL.put(url, URLSentiment);
     observeURL(url);
     
-    redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(sentiment) + "DELIMITER" + getMostFrequentURL());
+    redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(sentiment) + "DELIMITER" + getMostFrequentURL() + "DELIMITER" + countryName );
     
     //redis.publish("WordCountTopology", county_id + "DELIMITER" + noun + " " + verb + " " + object + "DELIMITER" + String.valueOf(sentiment));
     

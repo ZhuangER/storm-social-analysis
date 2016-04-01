@@ -76,6 +76,7 @@ public class ParseTweetBolt extends BaseRichBolt
     int sentiment = tuple.getIntegerByField("sentiment");
     
     String url = tuple.getString(0).split("DELIMITER")[2];
+    String countryName = tuple.getStringByField("tweet").split("DELIMITER")[3];
 
     
     // provide the delimiters for splitting the tweet
@@ -96,7 +97,7 @@ public class ParseTweetBolt extends BaseRichBolt
 	   	      }
 	    }
 	    
-	    collector.emit(new Values(tweet, result.toString(), posTweet[0], posTweet[1], posTweet[2], geoinfo,url, sentiment));
+	    collector.emit(new Values(tweet, result.toString(), posTweet[0], posTweet[1], posTweet[2], geoinfo,url, sentiment, countryName));
 
 		
     } 
@@ -153,7 +154,7 @@ public class ParseTweetBolt extends BaseRichBolt
   {
     // tell storm the schema of the output tuple for this spout
     // tuple consists of a single column called 'tweet-word'
-    declarer.declare(new Fields("original-tweet", "tweet-word", "noun", "verb", "object", "geoinfo", "url", "sentiment"));
+    declarer.declare(new Fields("original-tweet", "tweet-word", "noun", "verb", "object", "geoinfo", "url", "sentiment", "countryName"));
   }
 
 }

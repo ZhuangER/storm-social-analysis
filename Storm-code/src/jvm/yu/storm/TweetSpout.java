@@ -63,9 +63,11 @@ public class TweetSpout extends BaseRichSpout
       // add the tweet into the queue buffer
       String geoInfo = "37.7833,122.4167";
       String urlInfo = "n/a";
+      String countryName = "";
       if(status.getGeoLocation() != null)
       {
         geoInfo = String.valueOf(status.getGeoLocation().getLatitude()) + "," + String.valueOf(status.getGeoLocation().getLongitude());
+        countryName = String.valueOf(status.getPlace().getCountry());
           if(status.getURLEntities().length > 0)
           {
             for(URLEntity urlE: status.getURLEntities())
@@ -73,7 +75,7 @@ public class TweetSpout extends BaseRichSpout
               urlInfo = urlE.getURL();
             }         
           }
-           queue.offer(status.getText() + "DELIMITER" + geoInfo + "DELIMITER" + urlInfo);
+           queue.offer(status.getText() + "DELIMITER" + geoInfo + "DELIMITER" + urlInfo + "DELIMITER" + countryName);
       }
     }
 
