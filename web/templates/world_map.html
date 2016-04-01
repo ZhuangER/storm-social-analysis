@@ -37,21 +37,24 @@ var colors =
       "#FFFF00"];
       var source = new EventSource('/stream');
       var hashSentence = {};
-      var hashSentiment = {};
+      var hashPersonalSentiment = {};
       var hashCountry = {};
+      var hashCountrySentiment = {};
 
       source.onmessage = function (event) {
         var geoinfo = event.data.split("DELIMITER")[0];
         var sentence = event.data.split("DELIMITER")[1];
-        var sentiment = event.data.split("DELIMITER")[2];
+        var personalSentiment = event.data.split("DELIMITER")[2];
         var countryName = event.data.split("DELIMITER")[4];
+        var countrySentiment = event.data.split("DELIMITER")[5];
         
         //var point = [latitude, longitude];
         //console.log("NEW DATA IS HERE " + event.data);
 
         hashSentence[geoinfo]=sentence;
-        hashSentiment[geoinfo]=sentiment;
+        hashPersonalSentiment[geoinfo]=personalSentiment;
         hashCountry[geoinfo] = countryName;
+        hashCountrySentiment[countryName] = countrySentiment; 
         //hashURLInfo[county_id]=URLInfo;
 
       };
@@ -115,18 +118,18 @@ var tweetlist = [];
 
 var updateViz =  function(){
 
-    for(key in hashSentiment)
+    for(key in hashPersonalSentiment)
     {
 
-        console.log("REFRESH: " + key + ":" + hashSentiment[key]);
+        console.log("REFRESH: " + key + ":" + hashPersonalSentiment[key]);
         var data = {}; 
 
-        if(hashSentiment[key])
+        if(hashPersonalSentiment[key])
         {
           var latitude = parseFloat(key.split(",")[0]);
           var longitude = parseFloat(key.split(",")[1]);
           if (longitude && latitude){
-          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'sentiment' + Math.round(hashSentiment[key]*10).toString()});
+          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'sentiment' + hashPersonalSentiment[key].toString(), sentiment: hashPersonalSentiment[key]});
           
           //data[key] = colors[Math.round(hashSentiment[key]*10)];
           //draw bubbles
@@ -135,6 +138,7 @@ var updateViz =  function(){
               return ['<div class="hoverinfo">' + 'location:' + [data.latitude, data.longitude],
             '<br/>Sentence: ' +  data.sentence + '',
             '<br/>Country: ' + data.country + '',
+            '<br/>Sentiment: ' + data.sentiment  +'',
             '</div>']
             }
           });
@@ -143,7 +147,25 @@ var updateViz =  function(){
         }
     }
 
-    hashSentiment = {};
+    hashPersonalSentiment = {};
+
+/*    for(key in hashCountrySentiment)
+    {
+
+        console.log("REFRESH: " + key + ":" + hashCountrySentiment[key]);
+        var data = {}; 
+
+        if(hashCountrySentiment[key])
+        {
+          data[key] = colors[Math.round(hashCountrySentiment[key]*10)];
+          map.updateChoropleth(data);
+        
+        }
+    }
+
+    hashCountrySentiment = {};*/
+
+
 }
 
 window.setInterval(updateViz, 1000);

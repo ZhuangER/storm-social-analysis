@@ -39,29 +39,11 @@ class TweetTopology
     builder.setSpout("tweet-spout", tweetSpout, 1);
 
     // attach the parse tweet bolt using shuffle grouping
-    builder.setBolt("parse-tweet-bolt", new ParseTweetBolt(), 10).shuffleGrouping("tweet-spout");
-    builder.setBolt("infoBolt", new InfoBolt(), 10).shuffleGrouping("parse-tweet-bolt");
-    builder.setBolt("top-words", new TopWords(), 10).shuffleGrouping("infoBolt");
+ /*   builder.setBolt("parse-tweet-bolt", new ParseTweetBolt(), 10).shuffleGrouping("tweet-spout");*/
+    builder.setBolt("infoBolt", new InfoBolt(), 10).shuffleGrouping("tweet-spout");
+    builder.setBolt("top-words", new TopWords(), 10).fieldsGrouping("infoBolt", new Fields("countryName"));
     builder.setBolt("report-bolt", new ReportBolt(), 1).globalGrouping("top-words");
 
-    // attach rolling count bolt using fields grouping - parallelism of 5
-    //builder.setBolt("rolling-count-bolt", new RollingCountBolt(1000, 10), 1).fieldsGrouping("parse-tweet-bolt", new Fields("tweet-word"));
-
-    //from incubator-storm/.../storm/starter/RollingTopWords.java
-    //builder.setBolt("intermediate-ranker", new IntermediateRankingsBolt(TOP_N, 10), 2).fieldsGrouping("rolling-count-bolt", new Fields("obj"));
-    //builder.setBolt("total-ranker", new TotalRankingsBolt(TOP_N, 2)).globalGrouping("intermediate-ranker");
-
-    /*
-     * total-ranker bolt output is broadcast (allGrouping) to all the top-tweets bolt instances so
-     * that every one of them have access to the top hashtags
-     * tweet-spout tweet stream will be distributed randomly to the top-tweets bolt instances
-     */
-    //builder.setBolt("top-tweets", new TweetsWithTopHashtagsBolt(), 4)
-    //    .allGrouping("total-ranker")
-    //    .shuffleGrouping("tweet-spout");
-
-    // attach the report bolt using global grouping - parallelism of 1
-    //builder.setBolt("report-bolt", new ReportBolt(), 1).globalGrouping("top-tweets");
 
     // create the default config object
     Config conf = new Config();

@@ -67,7 +67,7 @@ public class TweetSpout extends BaseRichSpout
       if(status.getGeoLocation() != null)
       {
         geoInfo = String.valueOf(status.getGeoLocation().getLatitude()) + "," + String.valueOf(status.getGeoLocation().getLongitude());
-        countryName = String.valueOf(status.getPlace().getCountry());
+        countryName = String.valueOf(status.getPlace().getCountryCode());
           if(status.getURLEntities().length > 0)
           {
             for(URLEntity urlE: status.getURLEntities())
@@ -191,7 +191,7 @@ public class TweetSpout extends BaseRichSpout
     if(geoInfo != null && !geoInfo.equals("n/a"))
     {
         System.out.print("\t DEBUG SPOUT: BEFORE SENTIMENT \n");
-        int sentiment = SentimentAnalyzer.findSentiment(originalTweet)-2;
+        int sentiment = SentimentAnalyzer.findSentiment(originalTweet) - 2;
         System.out.print("\t DEBUG SPOUT: AFTER SENTIMENT (" + String.valueOf(sentiment) + ") for \t" + originalTweet + "\n");
         collector.emit(new Values(ret, sentiment));
     }

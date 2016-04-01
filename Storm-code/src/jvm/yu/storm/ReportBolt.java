@@ -52,86 +52,23 @@ public class ReportBolt extends BaseRichBolt
     redis = client.connect();
   }
 
-  public Integer getURLCount(String url_)
-  {
-	  if(URLCounter.containsKey(url_))
-	  {
-		  return URLCounter.get(url_);
-	  }
-	  else
-	  {
-		  return 1;
-	  }
-  }
-  public String getMostFrequentURL()
-  {       
 
-	  ValueComparator bvc =  new ValueComparator(URLCounter);
-	  TreeMap<String,Double> sorted_map = new TreeMap<String,Double>(bvc);
-	  String result = "";
-	  int MAX = 20;
-	  int counter = 0;
-	  for (String key : sorted_map.keySet())
-      {
-		  result = result + (key + "," + sorted_map.get(key));
-		  counter++;
-		  if(counter > 20) break;
-      }
-      return result;
-	  //return "no tweet";
-	  
-  }
-  public void observeURL(String url_)
-  {
-	  if(URLCounter.containsKey(url_))
-	  {
-		  URLCounter.put(url_, URLCounter.get(url_) + 1);
-	  }
-	  else
-	  {
-		  URLCounter.put(url_,  1);
-	  }
-  }
   @Override
   public void execute(Tuple tuple)
   {
 
 
 		
-	String tweet = tuple.getStringByField("tweet");
-	String tweetWord = tuple.getStringByField("tweetWord");    
-    //String county_id = tuple.getStringByField("county_id");
-    String noun = tuple.getStringByField("noun");
-    String verb = tuple.getStringByField("verb");
-    String object = tuple.getStringByField("do");
+	  String tweet = tuple.getStringByField("tweet");
     String matchedEmoticon = tuple.getStringByField("matchedEmoticon");
     String geoinfo = tuple.getStringByField("geoinfo");
-    String url = tuple.getStringByField("url");
     double matchedEmoticonScore= tuple.getIntegerByField("matchedEmoticonScore")*1.0;
-    double sentiment = tuple.getDoubleByField("sentiment");
+    int personalSentiment = tuple.getIntegerByField("personalSentiment");
+    double countrySentiment = tuple.getDoubleByField("countrySentiment");
     String countryName = tuple.getStringByField("countryName");
-    System.out.println("\t\t\tDEBUG ReportBolt: " + String.valueOf(matchedEmoticonScore) + ", Tweet Sentiment:" + String.valueOf(sentiment) + "URL: " + getMostFrequentURL());
-    
-    
-    double alpha = 0.01;
-    double URLSentiment = sentiment;
-    
-    if(sentimentURL.containsKey(url))
-    	URLSentiment = (1-alpha)*sentimentURL.get(url) + alpha * Math.max(sentiment, matchedEmoticonScore/5);
-    sentimentURL.put(url, URLSentiment);
-    observeURL(url);
-    
-    redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(sentiment) + "DELIMITER" + getMostFrequentURL() + "DELIMITER" + countryName );
-    
-    //redis.publish("WordCountTopology", county_id + "DELIMITER" + noun + " " + verb + " " + object + "DELIMITER" + String.valueOf(sentiment));
-    
-    
-    //String enrichedURL = tuple.getStringByField("word");
-    
-    //System.out.print(tuple.toString() + "\n");
-    // publish the word count to redis using word as the key
-    //redis.publish("WordCountTopology", word + ":" + Long.toString(count));
-    //redis.publish("WordCountTopology", tweets + "|" + Long.toString(count));
+    System.out.println("\t\t\tDEBUG ReportBolt: " + String.valueOf(matchedEmoticonScore) + ", Tweet countrySentiment:" + String.valueOf(countrySentiment));
+
+    redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(personalSentiment) + "DELIMITER" + countryName + "DELIMITER" + String.valueOf(countrySentiment));
   }
 
   public void declareOutputFields(OutputFieldsDeclarer declarer)

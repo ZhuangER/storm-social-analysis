@@ -48,12 +48,14 @@ public class InfoBolt extends BaseRichBolt
   private static final String EMOTICON_DELIMITER =
 		  SPACE_REGEX + "|" + PUNCTUATION_REGEX;
   
-  public static final Pattern SMILEY_REGEX_PATTERN = Pattern.compile(":[)DdpP]|:[ -]\\)|<3");
-  public static final Pattern FROWNY_REGEX_PATTERN = Pattern.compile(":[(<]|:[ -]\\(");
-  public static final Pattern EMOTICON_REGEX_PATTERN =
+  // match positive emoticon
+  public static final Pattern POSITIVE_FACE_PATTERN = Pattern.compile("([:;X=8]-?[\\)DpP\\]])|(\\(:)");
+  // match negative emoticon
+  public static final Pattern NEGATIVE_FACE_PATTERN = Pattern.compile("(>?[:;]-?[/\\|\\[\\(@])|(D[:8X])");
+  /*public static final Pattern EMOTICON_REGEX_PATTERN =
   Pattern.compile("(?<=^|" + EMOTICON_DELIMITER + ")("
   + SMILEY_REGEX_PATTERN.pattern() + "|" + FROWNY_REGEX_PATTERN.pattern()
-  + ")+(?=$|" + EMOTICON_DELIMITER + ")");
+  + ")+(?=$|" + EMOTICON_DELIMITER + ")");*/
   
   public static final Pattern EMOJI_REGEX = Pattern.compile("([\uD83C-\uDBFF\uDC00-\uDFFF])+");
   public static final Pattern EMOTICON_REGEX = Pattern.compile("[\uF301-\uF618]+");
@@ -88,18 +90,13 @@ public class InfoBolt extends BaseRichBolt
 	  try {
     // get the word from the 1st column of incoming tuple
     Map<String, String> emoticonAndScore;
-	String originalTweet = tuple.getStringByField("original-tweet");
-    String word = tuple.getStringByField("tweet-word");
-    String noun = tuple.getStringByField("noun");
-    String verb = tuple.getStringByField("verb");
-    String object = tuple.getStringByField("object");
-    //String county_id = tuple.getStringByField("county_id");
-    String geoinfo = tuple.getStringByField("geoinfo");
-    String url = tuple.getStringByField("url");
+
+    String originalTweet = tuple.getStringByField("tweet").split("DELIMITER")[0];
+    String geoinfo = tuple.getStringByField("tweet").split("DELIMITER")[1];
     int sentiment = tuple.getIntegerByField("sentiment");
-    String countryName = tuple.getStringByField("countryName");
+    String countryName = tuple.getStringByField("tweet").split("DELIMITER")[3];
     
-/*      
+      
     emoticonAndScore = getScoreIfEmoticonPresent(originalTweet);
     int matchedEmoticonScore = Integer.parseInt(emoticonAndScore.get("score"));
     String matchedEmoticon = emoticonAndScore.get("emoticon");
@@ -107,9 +104,9 @@ public class InfoBolt extends BaseRichBolt
     System.out.println("Emotion: " + matchedEmoticon + " Score: " + emoticonAndScore.get("score"));
 
 
-	collector.emit(new Values(originalTweet,word,noun,verb,object,county_id,url,matchedEmoticonScore, matchedEmoticon, sentiment));*/
+	collector.emit(new Values(originalTweet,geoinfo,matchedEmoticonScore, matchedEmoticon, sentiment, countryName));
 
-	collector.emit(new Values(originalTweet,word,noun,verb,object, geoinfo,url,0, "", sentiment, countryName));
+	/*collector.emit(new Values(originalTweet,word,noun,verb,object, geoinfo,url,0, "", sentiment, countryName));*/
 	
 	  } catch(Exception e) {
 		  e.printStackTrace();
@@ -197,6 +194,6 @@ public class InfoBolt extends BaseRichBolt
     // declare the first column 'word', second column 'count'
     //outputFieldsDeclarer.declare(new Fields("word","count"));
 
-	outputFieldsDeclarer.declare(new Fields("original-tweet", "tweet-word", "noun", "verb", "object", "geoinfo", "url", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
+	outputFieldsDeclarer.declare(new Fields("original-tweet", "geoinfo", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
   }
 }
