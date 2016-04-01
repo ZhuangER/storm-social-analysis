@@ -149,9 +149,9 @@ public class TweetSpout extends BaseRichSpout
     
     //filter non-english tweets
     FilterQuery tweetFilterQuery = new FilterQuery(); 
-    tweetFilterQuery.locations(new double[][]{new double[]{-124.848974,24.396308},
+    /*tweetFilterQuery.locations(new double[][]{new double[]{-124.848974,24.396308},
                     new double[]{-66.885444,49.384358
-                    }}); 
+                    }}); */
     tweetFilterQuery.language(new String[]{"en"});
 
     
