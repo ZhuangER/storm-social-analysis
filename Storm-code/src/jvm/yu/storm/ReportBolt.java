@@ -35,9 +35,6 @@ public class ReportBolt extends BaseRichBolt
 {
   // place holder to keep the connection to redis
   transient RedisConnection<String,String> redis;
-  HashMap<String, Integer> URLCounter;
-  HashMap<String, Double> sentimentURL;
-  Rankings rankableList;
   @Override
   public void prepare(
       Map                     map,
@@ -46,8 +43,6 @@ public class ReportBolt extends BaseRichBolt
   {
     // instantiate a redis connection
     RedisClient client = new RedisClient("localhost",6379);
-    URLCounter = new HashMap<String, Integer>();
-    sentimentURL = new HashMap<String, Double>();
     // initiate the actual connection
     redis = client.connect();
   }
@@ -56,9 +51,6 @@ public class ReportBolt extends BaseRichBolt
   @Override
   public void execute(Tuple tuple)
   {
-
-
-		
 	  String tweet = tuple.getStringByField("tweet");
     String matchedEmoticon = tuple.getStringByField("matchedEmoticon");
     String geoinfo = tuple.getStringByField("geoinfo");

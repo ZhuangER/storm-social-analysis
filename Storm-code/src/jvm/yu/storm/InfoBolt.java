@@ -188,12 +188,6 @@ public class InfoBolt extends BaseRichBolt
   @Override
   public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer)
   {
-    // tell storm the schema of the output tuple for this spout
-    // tuple consists of a two columns called 'word' and 'count'
-
-    // declare the first column 'word', second column 'count'
-    //outputFieldsDeclarer.declare(new Fields("word","count"));
-
-	outputFieldsDeclarer.declare(new Fields("original-tweet", "geoinfo", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
+	  outputFieldsDeclarer.declare(new Fields("original-tweet", "geoinfo", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
   }
 }

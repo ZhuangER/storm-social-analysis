@@ -78,7 +78,7 @@ class TweetTopology
       Utils.sleep(300000000);
 
       // now kill the topology
-      cluster.killTopology("tweet-word-count");
+      //cluster.killTopology("tweet-word-count");
 
       // we are done, so shutdown the local cluster
       cluster.shutdown();
