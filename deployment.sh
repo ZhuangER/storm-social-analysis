@@ -18,6 +18,9 @@ sudo apt-get -y install default-jdk maven vim zookeeper zookeeperd redis-server 
 
 sudo pip install flask redis
 
+# download zookeeper
+sudo wget http://apache.mirror.gtcomm.net/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
+
 echo "Storm..."
 # TODO maybe make this use the best mirror always?
 sudo mkdir /opt/storm
