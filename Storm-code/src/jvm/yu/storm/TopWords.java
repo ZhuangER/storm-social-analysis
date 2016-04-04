@@ -23,6 +23,7 @@ import backtype.storm.task.OutputCollector;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.Locale;
 
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
@@ -52,20 +53,6 @@ public class TopWords extends BaseRichBolt
 		alpha = 0.2;
 	}
 
-/*	public double getAvg(String countryName)
-	{
-		double sum = 0;
-		double total_count = 0.001;
-		for(int i = -1; i< 2; i++)
-		{
-			if(SentimentDistribution.containsKey(countryName+" "+String.valueOf(i)))
-			{
-				sum = sum + (SentimentDistribution.get(countryName+" "+String.valueOf(i))*(i+1.0)/3.0);
-				total_count = total_count + SentimentDistribution.get(countryName+" "+String.valueOf(i));
-			}
-		}
-		return sum/total_count;
-	}*/
 	
 	public void execute(Tuple tuple)
 	{
@@ -103,12 +90,12 @@ public class TopWords extends BaseRichBolt
 		}
 		
 		// because sentiment range is between 0 to 4, to match 5 value to [0, 1]
-		countrySentiment = SentimentDistribution.get(countryName) / CountMap.get(countryName) / 4;
+		countrySentiment = (SentimentDistribution.get(countryName)*1.0) / (CountMap.get(countryName)*1.0) / 4.0;
 		
 
 
 		System.out.println("\t\tTopWords\tDEBUG EMIT Tweet " + tweet + ", geoinfo" + geoinfo + ", matcedEmoticon: " + matchedEmoticon + ", sentimentKey: " + sentimentKey + ", countrySentiment: " + countrySentiment + ", personalSentiment: " + personalSentiment + ", countryName: " + countryName);
-		collector.emit(new Values(tweet, geoinfo, matchedEmoticonScore, matchedEmoticon, countrySentiment, personalSentiment, countryName));
+		collector.emit(new Values(tweet, geoinfo, countrySentiment, personalSentiment, countryName));
 
 	}
 

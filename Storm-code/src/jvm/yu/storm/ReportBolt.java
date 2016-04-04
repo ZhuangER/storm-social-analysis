@@ -19,6 +19,7 @@ import backtype.storm.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Locale;
 
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
@@ -27,6 +28,8 @@ import yu.storm.tools.*;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+
+
 
 /**
  * A bolt that prints the word and count to redis
@@ -45,6 +48,9 @@ public class ReportBolt extends BaseRichBolt
     RedisClient client = new RedisClient("localhost",6379);
     // initiate the actual connection
     redis = client.connect();
+
+    CountryCodeConvert.initCountryCodeMapping();
+
   }
 
 
@@ -57,6 +63,8 @@ public class ReportBolt extends BaseRichBolt
     double countrySentiment = tuple.getDoubleByField("countrySentiment");
     String countryName = tuple.getStringByField("countryName");
     System.out.println("\t\t\tDEBUG ReportBolt: " + "Tweet countrySentiment:" + String.valueOf(countrySentiment));
+
+    countryName = CountryCodeConvert.iso2CountryCodeToIso3CountryCode(countryName);
 
     redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(personalSentiment) + "DELIMITER" + countryName + "DELIMITER" + String.valueOf(countrySentiment));
   }

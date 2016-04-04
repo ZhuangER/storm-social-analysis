@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response
 import redis
+# import pycountry
 
 app = Flask(__name__)
 r = redis.StrictRedis(host='127.0.0.1', port=6379, db=0)
@@ -9,6 +10,7 @@ def event_stream():
     pubsub.subscribe('WordCountTopology')
     for message in pubsub.listen():
         print message
+        # print message['data'].split('DELIMITER')[3]
         yield 'data: %s\n\n' % message['data']
 
 
@@ -22,6 +24,9 @@ def show_map():
 def ca_map():
 	return render_template("ca_map.html")
 
+@app.route('/test')
+def test():
+    return render_template("test.html")
 
 @app.route('/stream')
 def stream():

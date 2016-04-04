@@ -13,8 +13,6 @@ class TweetTopology
 {
   public static void main(String[] args) throws Exception
   {
-    //Variable TOP_N number of words
-    int TOP_N = 5;
     // create the topology
     TopologyBuilder builder = new TopologyBuilder();
 
@@ -78,7 +76,7 @@ class TweetTopology
       Utils.sleep(300000000);
 
       // now kill the topology
-      //cluster.killTopology("tweet-word-count");
+      cluster.killTopology("tweet-word-count");
 
       // we are done, so shutdown the local cluster
       cluster.shutdown();

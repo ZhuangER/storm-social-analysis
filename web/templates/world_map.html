@@ -3,11 +3,11 @@
 <style>
 
 svg.datamap{
-  background: black;
+  background: white;
 }
 
 html {
-  background: black;
+  background: white;
 }
 
 #datamaps-bubble {
@@ -23,7 +23,7 @@ html {
 <div id="container" style="position: relative; width: 1600px; height: 1000px;"></div>
 <script>
 
-var colors = 
+var countryColors = 
     [ "#0000FF",
       "#0066FF",
       "#3399FF",
@@ -45,8 +45,8 @@ var colors =
         var geoinfo = event.data.split("DELIMITER")[0];
         var sentence = event.data.split("DELIMITER")[1];
         var personalSentiment = event.data.split("DELIMITER")[2];
-        var countryName = event.data.split("DELIMITER")[4];
-        var countrySentiment = event.data.split("DELIMITER")[5];
+        var countryName = event.data.split("DELIMITER")[3];
+        var countrySentiment = event.data.split("DELIMITER")[4];
         
         //var point = [latitude, longitude];
         //console.log("NEW DATA IS HERE " + event.data);
@@ -60,9 +60,24 @@ var colors =
       };
 
 var projection, path;
+/*var width = 960,
+    height = 500;*/
      var map = new Datamap({
         element: document.getElementById('container'),
         scope: 'world',
+// earth view
+/*        setProjection: function(element, options) {
+          projection = d3.geo.orthographic()
+          .scale(250)
+          .translate([width / 2, height / 2])
+          .clipAngle(90);
+
+          path = d3.geo.path()
+                .projection(projection);
+          return {path: path, projection: projection};
+        },*/
+
+        // normal view
         setProjection: function(element, options) {
             
             projection = d3.geo.mercator()
@@ -75,18 +90,12 @@ var projection, path;
             return {path: path, projection: projection};
         },
         fills: {
-            "sentiment0":"#0000FF",
-            "sentiment1":"#0066FF",
-            "sentiment2":"#3399FF",
-            "sentiment3":"#66CCFF",
-            "sentiment4":"#CCFFFF",
-            "sentiment5":"#CCFFCC",
-            "sentiment6":"#FFFFCC",
-            "sentiment7":"#FFFF99",
-            "sentiment8":"#FFFF66",
-            "sentiment9":"#FFFF00",
-            "sentiment10":"#FFFF00",
-            defaultFill: 'black'
+            "bubbleSentiment0":"#0000FF",
+            "bubbleSentiment1":"#3399FF",
+            "bubbleSentiment2":"#CCFFFF",
+            "bubbleSentiment3":"#FFFFCC",
+            "bubbleSentiment4":"#FFFF00",
+            defaultFill: '#CCCDD1'
         },
 
         data: {
@@ -108,9 +117,31 @@ var projection, path;
           /*highlightFillOpacity: 0.3,*/
           highlightBorderOpacity: 0.3,
           animate: true
-        }
+        },
+
+/*         geographyConfig: {
+            dataUrl: '/static/us.json',
+            popupTemplate: function(geo, data) {
+
+              var lineOfTweets = "<p>" + hashSentence[geo.id] + "</p>";
+              
+              console.log(lineOfTweets)
+
+              return ['<div class="hoverinfo"><strong>'].join('');
+            }
+        },*/
 
     });
+    /*map.graticule();*/
+
+/*    var λ = d3.scale.linear()
+    .domain([0, width])
+    .range([-180, 180]);
+
+var φ = d3.scale.linear()
+    .domain([0, height])
+    .range([90, -90]);*/
+
 
 
 
@@ -129,8 +160,7 @@ var updateViz =  function(){
           var latitude = parseFloat(key.split(",")[0]);
           var longitude = parseFloat(key.split(",")[1]);
           if (longitude && latitude){
-          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'sentiment' + hashPersonalSentiment[key].toString(), sentiment: hashPersonalSentiment[key]});
-          
+          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'bubbleSentiment' + hashPersonalSentiment[key].toString(), sentiment: hashPersonalSentiment[key]});
           //data[key] = colors[Math.round(hashSentiment[key]*10)];
           //draw bubbles
           map.bubbles(tweetlist, {
@@ -145,11 +175,26 @@ var updateViz =  function(){
           console.log("draw" + {name: hashSentence[key], latitude: latitude, longitude: longitude, radius: 10});
           }
         }
+
+/*        for (key in hashCountrySentiment)
+        {
+          var data = {};
+          if (hashCountrySentiment[countryName]) 
+          {
+            data[key] = colors[Math.round(hashCountrySentiment[key]*10)];
+            map.updateChoropleth(data);
+          }
+        }
+
+        hashCountrySentiment = {};*/
+        
     }
 
     hashPersonalSentiment = {};
 
-/*    for(key in hashCountrySentiment)
+    /*map.updateChoropleth({CA: 'green'})*/
+
+    for(key in hashCountrySentiment)
     {
 
         console.log("REFRESH: " + key + ":" + hashCountrySentiment[key]);
@@ -157,16 +202,36 @@ var updateViz =  function(){
 
         if(hashCountrySentiment[key])
         {
-          data[key] = colors[Math.round(hashCountrySentiment[key]*10)];
+          data[key] = countryColors[Math.round(hashCountrySentiment[key]*10)];
           map.updateChoropleth(data);
         
         }
     }
 
-    hashCountrySentiment = {};*/
+    hashCountrySentiment = {};
 
 
 }
+
+/*var svg = d3.select("#container").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var λ = d3.scale.linear()
+    .domain([0, width])
+    .range([-180, 180]);
+
+var φ = d3.scale.linear()
+    .domain([0, height])
+    .range([90, -90]);
+
+var scrollSpeed = 50; var current = 0;
+    function bgscroll() {
+      current += 1;
+      projection.rotate([λ(current), 0]);
+      svg.selectAll("path").attr("d", path);
+    }
+window.setInterval(bgscroll, scrollSpeed); */ 
 
 window.setInterval(updateViz, 1000);
 
