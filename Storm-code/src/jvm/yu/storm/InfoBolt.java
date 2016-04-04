@@ -26,7 +26,7 @@ import java.util.Map;
 import com.google.common.base.Preconditions;
 
 /**
- * A bolt that counts the words that it receives
+ * A bolt that matches emoticons and emoji in the tweet
  */
 public class InfoBolt extends BaseRichBolt
 {
@@ -38,27 +38,14 @@ public class InfoBolt extends BaseRichBolt
 //ArrayList<String> happyCodes = new ArrayList<String>(
  //   Arrays.asList("#"));
   
-  private static final String SPACE_EXCEPTIONS = "\\n\\r";
-  public static final String SPACE_CHAR_CLASS = "\\p{C}\\p{Z}&&[^" + SPACE_EXCEPTIONS + "\\p{Cs}]";
-  public static final String SPACE_REGEX = "[" + SPACE_CHAR_CLASS + "]";
 
-  public static final String PUNCTUATION_CHAR_CLASS = "\\p{P}\\p{M}\\p{S}" + SPACE_EXCEPTIONS;
-  public static final String PUNCTUATION_REGEX = "[" + PUNCTUATION_CHAR_CLASS + "]";
-
-  private static final String EMOTICON_DELIMITER =
-		  SPACE_REGEX + "|" + PUNCTUATION_REGEX;
-  
   // match positive emoticon
   public static final Pattern POSITIVE_FACE_PATTERN = Pattern.compile("([:;X=8]-?[\\)DpP\\]])|(\\(:)");
   // match negative emoticon
   public static final Pattern NEGATIVE_FACE_PATTERN = Pattern.compile("(>?[:;]-?[/\\|\\[\\(@])|(D[:8X])");
-  /*public static final Pattern EMOTICON_REGEX_PATTERN =
-  Pattern.compile("(?<=^|" + EMOTICON_DELIMITER + ")("
-  + SMILEY_REGEX_PATTERN.pattern() + "|" + FROWNY_REGEX_PATTERN.pattern()
-  + ")+(?=$|" + EMOTICON_DELIMITER + ")");*/
-  
-  public static final Pattern EMOJI_REGEX = Pattern.compile("([\uD83C-\uDBFF\uDC00-\uDFFF])+");
-  public static final Pattern EMOTICON_REGEX = Pattern.compile("[\uF301-\uF618]+");
+
+  public static final Pattern EMOJI_REGEX = Pattern.compile("([\uD83C-\uDBFF\uDC00-\uDFFF\uF301-\uF618])+");
+  /*public static final Pattern EMOTICON_REGEX = Pattern.compile("[]+");*/
   
   private static final Charset UTF_8 = Charset.forName("UTF-8");
 
@@ -122,63 +109,42 @@ public class InfoBolt extends BaseRichBolt
       Map<String,String> emoticonAndScore = new HashMap<String, String>();
       System.out.println("Entering regex mathcing getEmoticon for String : " + input);
       
-      
-      
-      
       if (EMOJI_REGEX != null) {
-                      matcher = EMOJI_REGEX.matcher(input);
-                      if(matcher.matches()) {
-                                      
-                                      for( int i = 0; i < matcher.groupCount(); i++ ) {
-                                                      System.out.println("MAtcher group: " + String.valueOf(i));
-                                                      matchedString = matcher.group(i);
-                                                      char[] ca = matchedString.toCharArray();
-                                                      for(int j = 0; j < ca.length; j=j+2  ) {
-                                                                      System.out.println( String.format("%04x", Character.toCodePoint(ca[j], ca[j+1])) );
-                                                                      unicodeString = String.format("%04x", Character.toCodePoint(ca[j], ca[j+1]));
-                                                                      break;
-                                                      }
-                                      }
-                                      System.out.println("Emoji Matcher found: " + matchedString);
-                                      result = true;
-                      }
+        matcher = EMOJI_REGEX.matcher(input);
+        if(matcher.matches()) {
+          for( int i = 0; i < matcher.groupCount(); i++ ) {
+            System.out.println("MAtcher group: " + String.valueOf(i));
+            matchedString = matcher.group(i);
+            char[] ca = matchedString.toCharArray();
+            for(int j = 0; j < ca.length; j=j+2  ) {
+            System.out.println( String.format("%04x", Character.toCodePoint(ca[j], ca[j+1])) );
+            unicodeString = String.format("%04x", Character.toCodePoint(ca[j], ca[j+1]));
+            break;
+          }
+        }
+        System.out.println("Emoji Matcher found: " + matchedString);
+        result = true;
       }
-
-      if (EMOTICON_REGEX != null) {
-                      matcher = EMOTICON_REGEX.matcher(input);
-                      if(matcher.matches()) {
-                                                                                      
-                                      for( int i = 0; i < matcher.groupCount(); i++ ) {
-                                                      char[] ca = matchedString.toCharArray();
-                                                      for(int j = 0; j < ca.length; j=j+2  ) {
-                                                                      System.out.println( String.format("%04x", Character.toCodePoint(ca[j], ca[j+1])) );
-                                                                      unicodeString = String.format("%04x", Character.toCodePoint(ca[j], ca[j+1]));
-                                                                      break;
-                                                      }
-                                      }
-                                      System.out.println("Emoticon Matcher found: " + matchedString);
-                                      result = true;
-                      }
-      }              
+    }
       
       if (result == true){
-                      if(happy.contains( unicodeString )){
-                                      matchedStringScore = "5";
-                       } else if(mediumHappy.contains( unicodeString )){ 
-                                       matchedStringScore = "4"; 
-                       } else if(neutral.contains( unicodeString )){
-                                       matchedStringScore = "3";
-                       } else if(mediumUnhappy.contains( unicodeString )){ 
-                                       matchedStringScore = "2";
-                       } else if(unhappy.contains( unicodeString )){ 
-                                       matchedStringScore = "1"; 
-                       } 
+        if(happy.contains( unicodeString )){
+          matchedStringScore = "4";
+        } else if(mediumHappy.contains( unicodeString )){ 
+          matchedStringScore = "3"; 
+        } else if(neutral.contains( unicodeString )){
+          matchedStringScore = "2";
+        } else if(mediumUnhappy.contains( unicodeString )){ 
+          matchedStringScore = "1";
+        } else if(unhappy.contains( unicodeString )){ 
+          matchedStringScore = "0"; 
+        } 
       }
       
       if(matcher != null && matcher.matches()) {
-                      emoticonAndScore.put("emoticon", matcher.group(0));
+        emoticonAndScore.put("emoticon", matcher.group(0));
       } else {
-                      emoticonAndScore.put("emoticon", "");
+        emoticonAndScore.put("emoticon", "");
       }
       
       emoticonAndScore.put("score", matchedStringScore);

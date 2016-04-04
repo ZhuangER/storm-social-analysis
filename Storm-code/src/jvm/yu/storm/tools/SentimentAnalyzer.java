@@ -16,15 +16,23 @@ public class SentimentAnalyzer {
 
     public static void init() {
     	Properties props = new Properties();
-        props.setProperty("annotators", "tokenize,ssplit,parse,sentiment");
+        props.put("annotators", "tokenize, ssplit, parse, sentiment");
+        //props.setProperty("annotators", "tokenize,ner,ssplit,parse,sentiment");
         pipeline = new StanfordCoreNLP(props);
     }
- 
+    // the higher mark means happier
+    // the range of sentiment between [0, 4]
     public static int findSentiment(String tweet) {
  
         int mainSentiment = 0;
+        //Annotation annotation;
         if (tweet != null && tweet.length() > 0) {
             int longest = 0;
+            // annotation = new Annotation(tweet);
+            // run all the selected Annotators on this text
+            //pipeline.annotate(annotation);
+            //Runs the entire pipeline on the content of the given text passed in.
+            //Returns: An Annotation object containing the output of all annotators
             Annotation annotation = pipeline.process(tweet);
             for (CoreMap sentence : annotation
                     .get(CoreAnnotations.SentencesAnnotation.class)) {
@@ -36,7 +44,15 @@ public class SentimentAnalyzer {
                     mainSentiment = sentiment;
                     longest = partText.length();
                 }
- 
+            }
+
+            if (tweet.indexOf('!') != -1) {
+                if (mainSentiment > 2) {
+                    mainSentiment += 1;
+                }
+                else if (mainSentiment < 2) {
+                    mainSentiment -= 1;
+                }
             }
         }
         return mainSentiment;

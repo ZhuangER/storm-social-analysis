@@ -25,6 +25,7 @@ import twitter4j.StatusListener;
 import twitter4j.StallWarning;
 import twitter4j.URLEntity;
 import yu.storm.tools.SentimentAnalyzer;
+import yu.storm.tools.TweetExtractor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -133,7 +134,6 @@ public class TweetSpout extends BaseRichSpout
     // save the output collector for emitting tuples
     collector = spoutOutputCollector;
 
-
     // build the config with credentials for twitter 4j
     ConfigurationBuilder config =
         new ConfigurationBuilder()
@@ -151,9 +151,6 @@ public class TweetSpout extends BaseRichSpout
     
     //filter non-english tweets
     FilterQuery tweetFilterQuery = new FilterQuery(); 
-    /*tweetFilterQuery.locations(new double[][]{new double[]{-124.848974,24.396308},
-                    new double[]{-66.885444,49.384358
-                    }}); */
     tweetFilterQuery.language(new String[]{"en"});
 
     
@@ -176,6 +173,7 @@ public class TweetSpout extends BaseRichSpout
     String ret = queue.poll();
     String geoInfo;
     String originalTweet;
+    String extractedTweet;
     // if no tweet is available, wait for 50 ms and return
     if (ret==null)
     {
@@ -190,8 +188,13 @@ public class TweetSpout extends BaseRichSpout
     
     if(geoInfo != null && !geoInfo.equals("n/a"))
     {
+        System.out.print("\t DEBUG SPOUT: BEFORE EXTRACTOR \n");
+        System.out.print("\t " + originalTweet + "\n");
+        extractedTweet = TweetExtractor.tweetRemover(originalTweet);
+        System.out.print("\t DEBUG SPOUT: AFTER EXTRACTOR \n");
+        System.out.print("\t " + extractedTweet);
         System.out.print("\t DEBUG SPOUT: BEFORE SENTIMENT \n");
-        int sentiment = SentimentAnalyzer.findSentiment(originalTweet) - 2;
+        int sentiment = SentimentAnalyzer.findSentiment(extractedTweet);
         System.out.print("\t DEBUG SPOUT: AFTER SENTIMENT (" + String.valueOf(sentiment) + ") for \t" + originalTweet + "\n");
         collector.emit(new Values(ret, sentiment));
     }

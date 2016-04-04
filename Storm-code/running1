@@ -1,0 +1,548 @@
+6314 [main] INFO  backtype.storm.zookeeper - Starting inprocess zookeeper at port 2000 and dir /tmp/dc7a7e0f-816b-476b-bc42-9eec21da4641
+7075 [main] INFO  backtype.storm.daemon.nimbus - Starting Nimbus with conf {"dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.tick.tuple.freq.secs" nil, "topology.builtin.metrics.bucket.size.secs" 60, "topology.fall.back.on.java.serialization" true, "topology.max.error.report.per.interval" 5, "zmq.linger.millis" 0, "topology.skip.missing.kryo.registrations" true, "storm.messaging.netty.client_worker_threads" 1, "ui.childopts" "-Xmx768m", "storm.zookeeper.session.timeout" 20000, "nimbus.reassign" true, "topology.trident.batch.emit.interval.millis" 50, "storm.messaging.netty.flush.check.interval.ms" 10, "nimbus.monitor.freq.secs" 10, "logviewer.childopts" "-Xmx128m", "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "topology.executor.send.buffer.size" 1024, "storm.local.dir" "/tmp/967d9e72-4158-4b57-b2dd-0047952fdb4e", "storm.messaging.netty.buffer_size" 5242880, "supervisor.worker.start.timeout.secs" 120, "topology.enable.message.timeouts" true, "nimbus.cleanup.inbox.freq.secs" 600, "nimbus.inbox.jar.expiration.secs" 3600, "drpc.worker.threads" 64, "topology.worker.shared.thread.pool.size" 4, "nimbus.host" "localhost", "storm.messaging.netty.min_wait_ms" 100, "storm.zookeeper.port" 2000, "transactional.zookeeper.port" nil, "topology.executor.receive.buffer.size" 1024, "transactional.zookeeper.servers" nil, "storm.zookeeper.root" "/storm", "storm.zookeeper.retry.intervalceiling.millis" 30000, "supervisor.enable" true, "storm.messaging.netty.server_worker_threads" 1, "storm.zookeeper.servers" ["localhost"], "transactional.zookeeper.root" "/transactional", "topology.acker.executors" nil, "topology.transfer.buffer.size" 1024, "topology.worker.childopts" nil, "drpc.queue.size" 128, "worker.childopts" "-Xmx768m", "supervisor.heartbeat.frequency.secs" 5, "topology.error.throttle.interval.secs" 10, "zmq.hwm" 0, "drpc.port" 3772, "supervisor.monitor.frequency.secs" 3, "drpc.childopts" "-Xmx768m", "topology.receiver.buffer.size" 8, "task.heartbeat.frequency.secs" 3, "topology.tasks" nil, "storm.messaging.netty.max_retries" 30, "topology.spout.wait.strategy" "backtype.storm.spout.SleepSpoutWaitStrategy", "nimbus.thrift.max_buffer_size" 1048576, "topology.max.spout.pending" nil, "storm.zookeeper.retry.interval" 1000, "topology.sleep.spout.wait.strategy.time.ms" 1, "nimbus.topology.validator" "backtype.storm.nimbus.DefaultTopologyValidator", "supervisor.slots.ports" [6700 6701 6702 6703], "topology.debug" false, "nimbus.task.launch.secs" 120, "nimbus.supervisor.timeout.secs" 60, "topology.message.timeout.secs" 30, "task.refresh.poll.secs" 10, "topology.workers" 1, "supervisor.childopts" "-Xmx256m", "nimbus.thrift.port" 6627, "topology.stats.sample.rate" 0.05, "worker.heartbeat.frequency.secs" 1, "topology.tuple.serializer" "backtype.storm.serialization.types.ListDelegateSerializer", "topology.disruptor.wait.strategy" "com.lmax.disruptor.BlockingWaitStrategy", "topology.multilang.serializer" "backtype.storm.multilang.JsonSerializer", "nimbus.task.timeout.secs" 30, "storm.zookeeper.connection.timeout" 15000, "topology.kryo.factory" "backtype.storm.serialization.DefaultKryoFactory", "drpc.invocations.port" 3773, "logviewer.port" 8000, "zmq.threads" 1, "storm.zookeeper.retry.times" 5, "topology.worker.receiver.thread.count" 1, "storm.thrift.transport" "backtype.storm.security.auth.SimpleTransportPlugin", "topology.state.synchronization.timeout.secs" 60, "supervisor.worker.timeout.secs" 30, "nimbus.file.copy.expiration.secs" 600, "storm.messaging.transport" "backtype.storm.messaging.netty.Context", "logviewer.appender.name" "A1", "storm.messaging.netty.max_wait_ms" 1000, "drpc.request.timeout.secs" 600, "storm.local.mode.zmq" false, "ui.port" 8080, "nimbus.childopts" "-Xmx1024m", "storm.cluster.mode" "local", "topology.max.task.parallelism" nil, "storm.messaging.netty.transfer.batch.size" 262144}
+7123 [main] INFO  backtype.storm.daemon.nimbus - Using default scheduler
+7439 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+7651 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+7665 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+7671 [main-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+8799 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+8826 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+8827 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+8941 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+8954 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+8956 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+8956 [main-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+8983 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+8989 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+8999 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+9001 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+9008 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+9009 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+9009 [main-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+9027 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+9049 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+9050 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+10089 [main] INFO  backtype.storm.daemon.supervisor - Starting Supervisor with conf {"dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.tick.tuple.freq.secs" nil, "topology.builtin.metrics.bucket.size.secs" 60, "topology.fall.back.on.java.serialization" true, "topology.max.error.report.per.interval" 5, "zmq.linger.millis" 0, "topology.skip.missing.kryo.registrations" true, "storm.messaging.netty.client_worker_threads" 1, "ui.childopts" "-Xmx768m", "storm.zookeeper.session.timeout" 20000, "nimbus.reassign" true, "topology.trident.batch.emit.interval.millis" 50, "storm.messaging.netty.flush.check.interval.ms" 10, "nimbus.monitor.freq.secs" 10, "logviewer.childopts" "-Xmx128m", "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "topology.executor.send.buffer.size" 1024, "storm.local.dir" "/tmp/42e66fb8-0c99-4fd5-8424-98cc0867092a", "storm.messaging.netty.buffer_size" 5242880, "supervisor.worker.start.timeout.secs" 120, "topology.enable.message.timeouts" true, "nimbus.cleanup.inbox.freq.secs" 600, "nimbus.inbox.jar.expiration.secs" 3600, "drpc.worker.threads" 64, "topology.worker.shared.thread.pool.size" 4, "nimbus.host" "localhost", "storm.messaging.netty.min_wait_ms" 100, "storm.zookeeper.port" 2000, "transactional.zookeeper.port" nil, "topology.executor.receive.buffer.size" 1024, "transactional.zookeeper.servers" nil, "storm.zookeeper.root" "/storm", "storm.zookeeper.retry.intervalceiling.millis" 30000, "supervisor.enable" true, "storm.messaging.netty.server_worker_threads" 1, "storm.zookeeper.servers" ["localhost"], "transactional.zookeeper.root" "/transactional", "topology.acker.executors" nil, "topology.transfer.buffer.size" 1024, "topology.worker.childopts" nil, "drpc.queue.size" 128, "worker.childopts" "-Xmx768m", "supervisor.heartbeat.frequency.secs" 5, "topology.error.throttle.interval.secs" 10, "zmq.hwm" 0, "drpc.port" 3772, "supervisor.monitor.frequency.secs" 3, "drpc.childopts" "-Xmx768m", "topology.receiver.buffer.size" 8, "task.heartbeat.frequency.secs" 3, "topology.tasks" nil, "storm.messaging.netty.max_retries" 30, "topology.spout.wait.strategy" "backtype.storm.spout.SleepSpoutWaitStrategy", "nimbus.thrift.max_buffer_size" 1048576, "topology.max.spout.pending" nil, "storm.zookeeper.retry.interval" 1000, "topology.sleep.spout.wait.strategy.time.ms" 1, "nimbus.topology.validator" "backtype.storm.nimbus.DefaultTopologyValidator", "supervisor.slots.ports" (1024 1025 1026), "topology.debug" false, "nimbus.task.launch.secs" 120, "nimbus.supervisor.timeout.secs" 60, "topology.message.timeout.secs" 30, "task.refresh.poll.secs" 10, "topology.workers" 1, "supervisor.childopts" "-Xmx256m", "nimbus.thrift.port" 6627, "topology.stats.sample.rate" 0.05, "worker.heartbeat.frequency.secs" 1, "topology.tuple.serializer" "backtype.storm.serialization.types.ListDelegateSerializer", "topology.disruptor.wait.strategy" "com.lmax.disruptor.BlockingWaitStrategy", "topology.multilang.serializer" "backtype.storm.multilang.JsonSerializer", "nimbus.task.timeout.secs" 30, "storm.zookeeper.connection.timeout" 15000, "topology.kryo.factory" "backtype.storm.serialization.DefaultKryoFactory", "drpc.invocations.port" 3773, "logviewer.port" 8000, "zmq.threads" 1, "storm.zookeeper.retry.times" 5, "topology.worker.receiver.thread.count" 1, "storm.thrift.transport" "backtype.storm.security.auth.SimpleTransportPlugin", "topology.state.synchronization.timeout.secs" 60, "supervisor.worker.timeout.secs" 30, "nimbus.file.copy.expiration.secs" 600, "storm.messaging.transport" "backtype.storm.messaging.netty.Context", "logviewer.appender.name" "A1", "storm.messaging.netty.max_wait_ms" 1000, "drpc.request.timeout.secs" 600, "storm.local.mode.zmq" false, "ui.port" 8080, "nimbus.childopts" "-Xmx1024m", "storm.cluster.mode" "local", "topology.max.task.parallelism" nil, "storm.messaging.netty.transfer.batch.size" 262144}
+10129 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+10141 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+10142 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+10142 [main-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+10165 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+10178 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+10185 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+10289 [main] INFO  backtype.storm.daemon.supervisor - Starting supervisor with id 85bc6196-8bc0-44ab-b04c-509b35bbb485 at host ubuntu1404-i386
+10298 [main] INFO  backtype.storm.daemon.supervisor - Starting Supervisor with conf {"dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.tick.tuple.freq.secs" nil, "topology.builtin.metrics.bucket.size.secs" 60, "topology.fall.back.on.java.serialization" true, "topology.max.error.report.per.interval" 5, "zmq.linger.millis" 0, "topology.skip.missing.kryo.registrations" true, "storm.messaging.netty.client_worker_threads" 1, "ui.childopts" "-Xmx768m", "storm.zookeeper.session.timeout" 20000, "nimbus.reassign" true, "topology.trident.batch.emit.interval.millis" 50, "storm.messaging.netty.flush.check.interval.ms" 10, "nimbus.monitor.freq.secs" 10, "logviewer.childopts" "-Xmx128m", "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "topology.executor.send.buffer.size" 1024, "storm.local.dir" "/tmp/0122ac4b-d3b3-4d58-917b-68d351df8bb3", "storm.messaging.netty.buffer_size" 5242880, "supervisor.worker.start.timeout.secs" 120, "topology.enable.message.timeouts" true, "nimbus.cleanup.inbox.freq.secs" 600, "nimbus.inbox.jar.expiration.secs" 3600, "drpc.worker.threads" 64, "topology.worker.shared.thread.pool.size" 4, "nimbus.host" "localhost", "storm.messaging.netty.min_wait_ms" 100, "storm.zookeeper.port" 2000, "transactional.zookeeper.port" nil, "topology.executor.receive.buffer.size" 1024, "transactional.zookeeper.servers" nil, "storm.zookeeper.root" "/storm", "storm.zookeeper.retry.intervalceiling.millis" 30000, "supervisor.enable" true, "storm.messaging.netty.server_worker_threads" 1, "storm.zookeeper.servers" ["localhost"], "transactional.zookeeper.root" "/transactional", "topology.acker.executors" nil, "topology.transfer.buffer.size" 1024, "topology.worker.childopts" nil, "drpc.queue.size" 128, "worker.childopts" "-Xmx768m", "supervisor.heartbeat.frequency.secs" 5, "topology.error.throttle.interval.secs" 10, "zmq.hwm" 0, "drpc.port" 3772, "supervisor.monitor.frequency.secs" 3, "drpc.childopts" "-Xmx768m", "topology.receiver.buffer.size" 8, "task.heartbeat.frequency.secs" 3, "topology.tasks" nil, "storm.messaging.netty.max_retries" 30, "topology.spout.wait.strategy" "backtype.storm.spout.SleepSpoutWaitStrategy", "nimbus.thrift.max_buffer_size" 1048576, "topology.max.spout.pending" nil, "storm.zookeeper.retry.interval" 1000, "topology.sleep.spout.wait.strategy.time.ms" 1, "nimbus.topology.validator" "backtype.storm.nimbus.DefaultTopologyValidator", "supervisor.slots.ports" (1027 1028 1029), "topology.debug" false, "nimbus.task.launch.secs" 120, "nimbus.supervisor.timeout.secs" 60, "topology.message.timeout.secs" 30, "task.refresh.poll.secs" 10, "topology.workers" 1, "supervisor.childopts" "-Xmx256m", "nimbus.thrift.port" 6627, "topology.stats.sample.rate" 0.05, "worker.heartbeat.frequency.secs" 1, "topology.tuple.serializer" "backtype.storm.serialization.types.ListDelegateSerializer", "topology.disruptor.wait.strategy" "com.lmax.disruptor.BlockingWaitStrategy", "topology.multilang.serializer" "backtype.storm.multilang.JsonSerializer", "nimbus.task.timeout.secs" 30, "storm.zookeeper.connection.timeout" 15000, "topology.kryo.factory" "backtype.storm.serialization.DefaultKryoFactory", "drpc.invocations.port" 3773, "logviewer.port" 8000, "zmq.threads" 1, "storm.zookeeper.retry.times" 5, "topology.worker.receiver.thread.count" 1, "storm.thrift.transport" "backtype.storm.security.auth.SimpleTransportPlugin", "topology.state.synchronization.timeout.secs" 60, "supervisor.worker.timeout.secs" 30, "nimbus.file.copy.expiration.secs" 600, "storm.messaging.transport" "backtype.storm.messaging.netty.Context", "logviewer.appender.name" "A1", "storm.messaging.netty.max_wait_ms" 1000, "drpc.request.timeout.secs" 600, "storm.local.mode.zmq" false, "ui.port" 8080, "nimbus.childopts" "-Xmx1024m", "storm.cluster.mode" "local", "topology.max.task.parallelism" nil, "storm.messaging.netty.transfer.batch.size" 262144}
+10304 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+10315 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+10315 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+10316 [main-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+10330 [main] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+10341 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+10342 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+10386 [main] INFO  backtype.storm.daemon.supervisor - Starting supervisor with id b7c64d71-3269-4135-a8fa-77b824c2b596 at host ubuntu1404-i386
+10588 [main] INFO  backtype.storm.daemon.nimbus - Received topology submission for tweet-word-count with conf {"topology.acker.executors" nil, "topology.kryo.register" nil, "topology.kryo.decorators" (), "topology.name" "tweet-word-count", "storm.id" "tweet-word-count-1-1459733462", "topology.max.task.parallelism" 4, "topology.debug" true}
+10660 [main] INFO  backtype.storm.daemon.nimbus - Activating tweet-word-count: tweet-word-count-1-1459733462
+11092 [main] INFO  backtype.storm.scheduler.EvenScheduler - Available slots: (["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1025] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1026] ["b7c64d71-3269-4135-a8fa-77b824c2b596" 1027] ["b7c64d71-3269-4135-a8fa-77b824c2b596" 1028] ["b7c64d71-3269-4135-a8fa-77b824c2b596" 1029])
+11161 [main] INFO  backtype.storm.daemon.nimbus - Setting new assignment for topology id tweet-word-count-1-1459733462: #backtype.storm.daemon.common.Assignment{:master-code-dir "/tmp/967d9e72-4158-4b57-b2dd-0047952fdb4e/nimbus/stormdist/tweet-word-count-1-1459733462", :node->host {"85bc6196-8bc0-44ab-b04c-509b35bbb485" "ubuntu1404-i386"}, :executor->node+port {[2 2] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [3 3] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [4 4] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [5 5] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [6 6] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [7 7] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [8 8] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [9 9] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [10 10] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [11 11] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024], [1 1] ["85bc6196-8bc0-44ab-b04c-509b35bbb485" 1024]}, :executor->start-time-secs {[2 2] 1459733463, [3 3] 1459733463, [4 4] 1459733463, [5 5] 1459733463, [6 6] 1459733463, [7 7] 1459733463, [8 8] 1459733463, [9 9] 1459733463, [10 10] 1459733463, [11 11] 1459733463, [1 1] 1459733463}}
+11269 [Thread-3] INFO  backtype.storm.daemon.supervisor - Downloading code for storm id tweet-word-count-1-1459733462 from /tmp/967d9e72-4158-4b57-b2dd-0047952fdb4e/nimbus/stormdist/tweet-word-count-1-1459733462
+12500 [Thread-3] INFO  backtype.storm.daemon.supervisor - Finished downloading code for storm id tweet-word-count-1-1459733462 from /tmp/967d9e72-4158-4b57-b2dd-0047952fdb4e/nimbus/stormdist/tweet-word-count-1-1459733462
+12557 [Thread-4] INFO  backtype.storm.daemon.supervisor - Launching worker with assignment #backtype.storm.daemon.supervisor.LocalAssignment{:storm-id "tweet-word-count-1-1459733462", :executors ([2 2] [3 3] [4 4] [5 5] [6 6] [7 7] [8 8] [9 9] [10 10] [11 11] [1 1])} for this supervisor 85bc6196-8bc0-44ab-b04c-509b35bbb485 on port 1024 with id f9cb935e-b50a-4e1a-a776-731e2198c239
+12563 [Thread-4] INFO  backtype.storm.daemon.worker - Launching worker for tweet-word-count-1-1459733462 on 85bc6196-8bc0-44ab-b04c-509b35bbb485:1024 with id f9cb935e-b50a-4e1a-a776-731e2198c239 and conf {"dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.tick.tuple.freq.secs" nil, "topology.builtin.metrics.bucket.size.secs" 60, "topology.fall.back.on.java.serialization" true, "topology.max.error.report.per.interval" 5, "zmq.linger.millis" 0, "topology.skip.missing.kryo.registrations" true, "storm.messaging.netty.client_worker_threads" 1, "ui.childopts" "-Xmx768m", "storm.zookeeper.session.timeout" 20000, "nimbus.reassign" true, "topology.trident.batch.emit.interval.millis" 50, "storm.messaging.netty.flush.check.interval.ms" 10, "nimbus.monitor.freq.secs" 10, "logviewer.childopts" "-Xmx128m", "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "topology.executor.send.buffer.size" 1024, "storm.local.dir" "/tmp/42e66fb8-0c99-4fd5-8424-98cc0867092a", "storm.messaging.netty.buffer_size" 5242880, "supervisor.worker.start.timeout.secs" 120, "topology.enable.message.timeouts" true, "nimbus.cleanup.inbox.freq.secs" 600, "nimbus.inbox.jar.expiration.secs" 3600, "drpc.worker.threads" 64, "topology.worker.shared.thread.pool.size" 4, "nimbus.host" "localhost", "storm.messaging.netty.min_wait_ms" 100, "storm.zookeeper.port" 2000, "transactional.zookeeper.port" nil, "topology.executor.receive.buffer.size" 1024, "transactional.zookeeper.servers" nil, "storm.zookeeper.root" "/storm", "storm.zookeeper.retry.intervalceiling.millis" 30000, "supervisor.enable" true, "storm.messaging.netty.server_worker_threads" 1, "storm.zookeeper.servers" ["localhost"], "transactional.zookeeper.root" "/transactional", "topology.acker.executors" nil, "topology.transfer.buffer.size" 1024, "topology.worker.childopts" nil, "drpc.queue.size" 128, "worker.childopts" "-Xmx768m", "supervisor.heartbeat.frequency.secs" 5, "topology.error.throttle.interval.secs" 10, "zmq.hwm" 0, "drpc.port" 3772, "supervisor.monitor.frequency.secs" 3, "drpc.childopts" "-Xmx768m", "topology.receiver.buffer.size" 8, "task.heartbeat.frequency.secs" 3, "topology.tasks" nil, "storm.messaging.netty.max_retries" 30, "topology.spout.wait.strategy" "backtype.storm.spout.SleepSpoutWaitStrategy", "nimbus.thrift.max_buffer_size" 1048576, "topology.max.spout.pending" nil, "storm.zookeeper.retry.interval" 1000, "topology.sleep.spout.wait.strategy.time.ms" 1, "nimbus.topology.validator" "backtype.storm.nimbus.DefaultTopologyValidator", "supervisor.slots.ports" (1024 1025 1026), "topology.debug" false, "nimbus.task.launch.secs" 120, "nimbus.supervisor.timeout.secs" 60, "topology.message.timeout.secs" 30, "task.refresh.poll.secs" 10, "topology.workers" 1, "supervisor.childopts" "-Xmx256m", "nimbus.thrift.port" 6627, "topology.stats.sample.rate" 0.05, "worker.heartbeat.frequency.secs" 1, "topology.tuple.serializer" "backtype.storm.serialization.types.ListDelegateSerializer", "topology.disruptor.wait.strategy" "com.lmax.disruptor.BlockingWaitStrategy", "topology.multilang.serializer" "backtype.storm.multilang.JsonSerializer", "nimbus.task.timeout.secs" 30, "storm.zookeeper.connection.timeout" 15000, "topology.kryo.factory" "backtype.storm.serialization.DefaultKryoFactory", "drpc.invocations.port" 3773, "logviewer.port" 8000, "zmq.threads" 1, "storm.zookeeper.retry.times" 5, "topology.worker.receiver.thread.count" 1, "storm.thrift.transport" "backtype.storm.security.auth.SimpleTransportPlugin", "topology.state.synchronization.timeout.secs" 60, "supervisor.worker.timeout.secs" 30, "nimbus.file.copy.expiration.secs" 600, "storm.messaging.transport" "backtype.storm.messaging.netty.Context", "logviewer.appender.name" "A1", "storm.messaging.netty.max_wait_ms" 1000, "drpc.request.timeout.secs" 600, "storm.local.mode.zmq" false, "ui.port" 8080, "nimbus.childopts" "-Xmx1024m", "storm.cluster.mode" "local", "topology.max.task.parallelism" nil, "storm.messaging.netty.transfer.batch.size" 262144}
+12565 [Thread-4] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+12576 [Thread-4-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+12577 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+12577 [Thread-4-EventThread] INFO  backtype.storm.zookeeper - Zookeeper state update: :connected:none
+12591 [Thread-4] INFO  org.apache.curator.framework.imps.CuratorFrameworkImpl - Starting
+12603 [Thread-4-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: CONNECTED
+12603 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+13694 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor infoBolt:[2 2]
+13731 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: infoBolt __system ["startup"]
+13742 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks infoBolt:[2 2]
+13778 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor infoBolt:[2 2]
+13782 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Preparing bolt infoBolt:(2)
+13797 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Prepared bolt infoBolt:(2)
+13804 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor infoBolt:[3 3]
+13807 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: infoBolt __system ["startup"]
+13808 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks infoBolt:[3 3]
+13814 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor infoBolt:[3 3]
+13815 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Preparing bolt infoBolt:(3)
+13819 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Prepared bolt infoBolt:(3)
+13838 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor infoBolt:[4 4]
+13841 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: infoBolt __system ["startup"]
+13842 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks infoBolt:[4 4]
+13848 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Preparing bolt infoBolt:(4)
+13848 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor infoBolt:[4 4]
+13850 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Prepared bolt infoBolt:(4)
+13889 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor infoBolt:[5 5]
+13893 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: infoBolt __system ["startup"]
+13894 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks infoBolt:[5 5]
+13899 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor infoBolt:[5 5]
+13899 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Preparing bolt infoBolt:(5)
+13901 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Prepared bolt infoBolt:(5)
+13925 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor report-bolt:[6 6]
+13926 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: report-bolt __system ["startup"]
+13927 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks report-bolt:[6 6]
+13930 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor report-bolt:[6 6]
+13931 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Preparing bolt report-bolt:(6)
+13955 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor top-words:[7 7]
+13958 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: top-words __system ["startup"]
+13959 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks top-words:[7 7]
+13963 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor top-words:[7 7]
+13963 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Preparing bolt top-words:(7)
+13974 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Prepared bolt top-words:(7)
+13992 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor top-words:[8 8]
+13994 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: top-words __system ["startup"]
+13995 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks top-words:[8 8]
+13999 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor top-words:[8 8]
+14021 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor top-words:[9 9]
+14023 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: top-words __system ["startup"]
+14024 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks top-words:[9 9]
+14034 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor top-words:[9 9]
+14000 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Preparing bolt top-words:(8)
+14045 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Prepared bolt top-words:(8)
+14056 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Preparing bolt top-words:(9)
+14059 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Prepared bolt top-words:(9)
+14061 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor top-words:[10 10]
+14063 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: top-words __system ["startup"]
+14064 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks top-words:[10 10]
+14073 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor top-words:[10 10]
+14074 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Preparing bolt top-words:(10)
+14085 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Prepared bolt top-words:(10)
+14101 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor tweet-spout:[11 11]
+14105 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: tweet-spout __system ["startup"]
+14106 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks tweet-spout:[11 11]
+14154 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor tweet-spout:[11 11]
+14172 [Thread-26-tweet-spout] INFO  backtype.storm.daemon.executor - Opening spout tweet-spout:(11)
+14209 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor __system:[-1 -1]
+14212 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: __system __system ["startup"]
+14213 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks __system:[-1 -1]
+14218 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor __system:[-1 -1]
+14218 [Thread-28-__system] INFO  backtype.storm.daemon.executor - Preparing bolt __system:(-1)
+14249 [Thread-4] INFO  backtype.storm.daemon.executor - Loading executor __acker:[1 1]
+14251 [Thread-4] INFO  backtype.storm.daemon.task - Emitting: __acker __system ["startup"]
+14252 [Thread-4] INFO  backtype.storm.daemon.executor - Loaded executor tasks __acker:[1 1]
+14253 [Thread-28-__system] INFO  backtype.storm.daemon.executor - Prepared bolt __system:(-1)
+14270 [Thread-4] INFO  backtype.storm.daemon.executor - Timeouts disabled for executor __acker:[1 1]
+14272 [Thread-4] INFO  backtype.storm.daemon.executor - Finished loading executor __acker:[1 1]
+14273 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Preparing bolt __acker:(1)
+14273 [Thread-4] INFO  backtype.storm.daemon.worker - Launching receive-thread for 85bc6196-8bc0-44ab-b04c-509b35bbb485:1024
+14278 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Prepared bolt __acker:(1)
+14306 [Thread-31-worker-receiver-thread-0] INFO  backtype.storm.messaging.loader - Starting receive-thread: [stormId: tweet-word-count-1-1459733462, port: 1024, thread-id: 0 ]
+14360 [Thread-4] INFO  backtype.storm.daemon.worker - Worker has topology config {"storm.id" "tweet-word-count-1-1459733462", "dev.zookeeper.path" "/tmp/dev-storm-zookeeper", "topology.tick.tuple.freq.secs" nil, "topology.builtin.metrics.bucket.size.secs" 60, "topology.fall.back.on.java.serialization" true, "topology.max.error.report.per.interval" 5, "zmq.linger.millis" 0, "topology.skip.missing.kryo.registrations" true, "storm.messaging.netty.client_worker_threads" 1, "ui.childopts" "-Xmx768m", "storm.zookeeper.session.timeout" 20000, "nimbus.reassign" true, "topology.trident.batch.emit.interval.millis" 50, "storm.messaging.netty.flush.check.interval.ms" 10, "nimbus.monitor.freq.secs" 10, "logviewer.childopts" "-Xmx128m", "java.library.path" "/usr/local/lib:/opt/local/lib:/usr/lib", "topology.executor.send.buffer.size" 1024, "storm.local.dir" "/tmp/42e66fb8-0c99-4fd5-8424-98cc0867092a", "storm.messaging.netty.buffer_size" 5242880, "supervisor.worker.start.timeout.secs" 120, "topology.enable.message.timeouts" true, "nimbus.cleanup.inbox.freq.secs" 600, "nimbus.inbox.jar.expiration.secs" 3600, "drpc.worker.threads" 64, "topology.worker.shared.thread.pool.size" 4, "nimbus.host" "localhost", "storm.messaging.netty.min_wait_ms" 100, "storm.zookeeper.port" 2000, "transactional.zookeeper.port" nil, "topology.executor.receive.buffer.size" 1024, "transactional.zookeeper.servers" nil, "storm.zookeeper.root" "/storm", "storm.zookeeper.retry.intervalceiling.millis" 30000, "supervisor.enable" true, "storm.messaging.netty.server_worker_threads" 1, "storm.zookeeper.servers" ["localhost"], "transactional.zookeeper.root" "/transactional", "topology.acker.executors" nil, "topology.kryo.decorators" (), "topology.name" "tweet-word-count", "topology.transfer.buffer.size" 1024, "topology.worker.childopts" nil, "drpc.queue.size" 128, "worker.childopts" "-Xmx768m", "supervisor.heartbeat.frequency.secs" 5, "topology.error.throttle.interval.secs" 10, "zmq.hwm" 0, "drpc.port" 3772, "supervisor.monitor.frequency.secs" 3, "drpc.childopts" "-Xmx768m", "topology.receiver.buffer.size" 8, "task.heartbeat.frequency.secs" 3, "topology.tasks" nil, "storm.messaging.netty.max_retries" 30, "topology.spout.wait.strategy" "backtype.storm.spout.SleepSpoutWaitStrategy", "nimbus.thrift.max_buffer_size" 1048576, "topology.max.spout.pending" nil, "storm.zookeeper.retry.interval" 1000, "topology.sleep.spout.wait.strategy.time.ms" 1, "nimbus.topology.validator" "backtype.storm.nimbus.DefaultTopologyValidator", "supervisor.slots.ports" (1024 1025 1026), "topology.debug" true, "nimbus.task.launch.secs" 120, "nimbus.supervisor.timeout.secs" 60, "topology.kryo.register" nil, "topology.message.timeout.secs" 30, "task.refresh.poll.secs" 10, "topology.workers" 1, "supervisor.childopts" "-Xmx256m", "nimbus.thrift.port" 6627, "topology.stats.sample.rate" 0.05, "worker.heartbeat.frequency.secs" 1, "topology.tuple.serializer" "backtype.storm.serialization.types.ListDelegateSerializer", "topology.disruptor.wait.strategy" "com.lmax.disruptor.BlockingWaitStrategy", "topology.multilang.serializer" "backtype.storm.multilang.JsonSerializer", "nimbus.task.timeout.secs" 30, "storm.zookeeper.connection.timeout" 15000, "topology.kryo.factory" "backtype.storm.serialization.DefaultKryoFactory", "drpc.invocations.port" 3773, "logviewer.port" 8000, "zmq.threads" 1, "storm.zookeeper.retry.times" 5, "topology.worker.receiver.thread.count" 1, "storm.thrift.transport" "backtype.storm.security.auth.SimpleTransportPlugin", "topology.state.synchronization.timeout.secs" 60, "supervisor.worker.timeout.secs" 30, "nimbus.file.copy.expiration.secs" 600, "storm.messaging.transport" "backtype.storm.messaging.netty.Context", "logviewer.appender.name" "A1", "storm.messaging.netty.max_wait_ms" 1000, "drpc.request.timeout.secs" 600, "storm.local.mode.zmq" false, "ui.port" 8080, "nimbus.childopts" "-Xmx1024m", "storm.cluster.mode" "local", "topology.max.task.parallelism" 4, "storm.messaging.netty.transfer.batch.size" 262144}
+14362 [Thread-4] INFO  backtype.storm.daemon.worker - Worker f9cb935e-b50a-4e1a-a776-731e2198c239 for storm tweet-word-count-1-1459733462 on 85bc6196-8bc0-44ab-b04c-509b35bbb485:1024 has finished loading
+14583 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Prepared bolt report-bolt:(6)
+73805 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+73820 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+73831 [Thread-10-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1ed5379> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+73824 [Thread-8-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1859170> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+73853 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+73856 [Thread-12-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@12377c3> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+73904 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+73908 [Thread-14-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@d65950> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+73978 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+73980 [Thread-18-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1800ce5> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+74047 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74050 [Thread-20-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@871ab4> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+74061 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74063 [Thread-22-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@a3eb45> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+74087 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74089 [Thread-24-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@85d21> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+74257 [Thread-28-__system] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74261 [Thread-28-__system] INFO  backtype.storm.daemon.task - Emitting: __system __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@248dc5> [#<DataPoint [__ack-count = {}]> #<DataPoint [memory/heap = {unusedBytes=13802528, usedBytes=505177056, maxBytes=518979584, initBytes=16777216, virtualFreeBytes=13802528, committedBytes=518979584}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [newWorkerEvent = 1]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [memory/nonHeap = {unusedBytes=9474920, usedBytes=38300824, maxBytes=123731968, initBytes=35815424, virtualFreeBytes=85431144, committedBytes=47775744}]> #<DataPoint [uptimeSecs = 78.056]> #<DataPoint [__transfer = {write_pos=0, read_pos=0, capacity=1024, population=0}]> #<DataPoint [startTimeSecs = 1.459733448715E9]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]>]]
+74284 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74286 [Thread-30-__acker] INFO  backtype.storm.daemon.task - Emitting: __acker __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@115e7eb> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+74586 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+74590 [Thread-16-report-bolt] INFO  backtype.storm.daemon.task - Emitting: report-bolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@56e7f0> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=1, read_pos=0, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134704 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134706 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134708 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134707 [Thread-8-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@99ba6c> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134709 [Thread-10-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@9e2eb7> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134710 [Thread-12-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@10d0a57> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {__metrics=0}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {__metrics=20}]> #<DataPoint [__execute-count = {}]>]]
+134713 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134712 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134719 [Thread-24-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@88d2a9> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134712 [Thread-28-__system] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134712 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134726 [Thread-20-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@114545> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134711 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134728 [Thread-18-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1dad4d8> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134711 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134730 [Thread-14-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@553707> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134713 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134713 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+134733 [Thread-16-report-bolt] INFO  backtype.storm.daemon.task - Emitting: report-bolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@8fc86f> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134716 [Thread-22-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@121ede3> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+134737 [Thread-28-__system] INFO  backtype.storm.daemon.task - Emitting: __system __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@be83ae> [#<DataPoint [__ack-count = {}]> #<DataPoint [GC/Copy = {count=0, timeMs=0}]> #<DataPoint [memory/heap = {unusedBytes=646408, usedBytes=518333176, maxBytes=518979584, initBytes=16777216, virtualFreeBytes=646408, committedBytes=518979584}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [newWorkerEvent = 0]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]> #<DataPoint [GC/MarkSweepCompact = {count=17, timeMs=54019}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [memory/nonHeap = {unusedBytes=9636760, usedBytes=39056488, maxBytes=123731968, initBytes=35815424, virtualFreeBytes=84675480, committedBytes=48693248}]> #<DataPoint [uptimeSecs = 138.519]> #<DataPoint [__transfer = {write_pos=0, read_pos=0, capacity=1024, population=0}]> #<DataPoint [startTimeSecs = 1.459733448715E9]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]>]]
+134734 [Thread-30-__acker] INFO  backtype.storm.daemon.task - Emitting: __acker __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1aff9f4> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=2, read_pos=1, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+154744 [SyncThread:0] WARN  org.apache.zookeeper.server.persistence.FileTxnLog - fsync-ing the write ahead log in SyncThread:0 took 2835ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide
+157801 [Thread-4-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+157809 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+161797 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc3000b, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+177446 [Thread-4-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+177447 [Thread-4-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: RECONNECTED
+177452 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+191188 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30005, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+191205 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30007, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+194264 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+194265 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30003, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+194268 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+194266 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+194267 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+197201 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+197202 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+197209 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200802 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200806 [Thread-14-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@9c04ec> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+200807 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+200809 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30001, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+200806 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+200814 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+200813 [Thread-28-__system] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200820 [Thread-28-__system] INFO  backtype.storm.daemon.task - Emitting: __system __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@b859b3> [#<DataPoint [__ack-count = {}]> #<DataPoint [GC/Copy = {count=0, timeMs=0}]> #<DataPoint [memory/heap = {unusedBytes=180504, usedBytes=518799080, maxBytes=518979584, initBytes=16777216, virtualFreeBytes=180504, committedBytes=518979584}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [newWorkerEvent = 0]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]> #<DataPoint [GC/MarkSweepCompact = {count=20, timeMs=65210}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [memory/nonHeap = {unusedBytes=9583256, usedBytes=39109992, maxBytes=123731968, initBytes=35815424, virtualFreeBytes=84621976, committedBytes=48693248}]> #<DataPoint [uptimeSecs = 204.615]> #<DataPoint [__transfer = {write_pos=0, read_pos=0, capacity=1024, population=0}]> #<DataPoint [startTimeSecs = 1.459733448715E9]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]>]]
+200813 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200824 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200810 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+200810 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+206492 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - Exception causing close of session 0x153dee4efc30001 due to java.nio.channels.CancelledKeyException
+203653 [Thread-10-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@14f841c> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+203644 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+203644 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+203643 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+209322 [Thread-20-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@20a258> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+203643 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+209330 [Thread-12-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@11b606c> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {__metrics=0}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {__metrics=0}]> #<DataPoint [__execute-count = {}]>]]
+203642 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+203640 [Thread-24-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@34fe2b> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+200823 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: LOST
+225382 [main-EventThread] WARN  backtype.storm.cluster - Received event :expired::none: with disconnected Zookeeper.
+225384 [main-EventThread] WARN  org.apache.curator.ConnectionState - Session expired event received
+200822 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+200815 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+246682 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+246682 [CuratorFramework-0] WARN  org.apache.curator.ConnectionState - Connection attempt unsuccessful after 21295 (greater than max timeout of 20000). Resetting connection and trying again with a new connection.
+246678 [Thread-22-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@a66e0f> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+231257 [Thread-4-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+231249 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+225386 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30007, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+218636 [Thread-30-__acker] INFO  backtype.storm.daemon.task - Emitting: __acker __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@672727> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+209323 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: RECONNECTED
+209322 [Thread-18-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@825817> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+209321 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: RECONNECTED
+209317 [Thread-16-report-bolt] INFO  backtype.storm.daemon.task - Emitting: report-bolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@3b8730> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+206510 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: LOST
+265769 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+258957 [main-EventThread] INFO  org.apache.curator.framework.state.ConnectionStateManager - State change: SUSPENDED
+258957 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+265777 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+255890 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxnFactory - Ignoring unexpected runtime exception
+java.nio.channels.CancelledKeyException: null
+	at sun.nio.ch.SelectionKeyImpl.ensureValid(SelectionKeyImpl.java:73) ~[na:1.7.0_55]
+	at sun.nio.ch.SelectionKeyImpl.readyOps(SelectionKeyImpl.java:87) ~[na:1.7.0_55]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:187) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+255889 [Thread-8-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1796f3> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=3, read_pos=2, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+255887 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+255882 [timer] WARN  org.apache.curator.ConnectionState - Connection attempt unsuccessful after 49374 (greater than max timeout of 20000). Resetting connection and trying again with a new connection.
+255880 [Thread-4-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+250278 [SyncThread:0] WARN  org.apache.zookeeper.server.persistence.FileTxnLog - fsync-ing the write ahead log in SyncThread:0 took 3597ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide
+250277 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+250276 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+331234 [main-EventThread] WARN  backtype.storm.cluster - Received event :expired::none: with disconnected Zookeeper.
+435217 [main-EventThread] WARN  org.apache.curator.ConnectionState - Session expired event received
+328345 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+318854 [Thread-5] WARN  org.apache.curator.ConnectionState - Connection attempt unsuccessful after 23158 (greater than max timeout of 20000). Resetting connection and trying again with a new connection.
+318853 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+292835 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435226 [Thread-30-__acker] INFO  backtype.storm.daemon.task - Emitting: __acker __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@6938ad> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435232 [Thread-30-__acker] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+287249 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+283637 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+280845 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+278076 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+278073 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435251 [Thread-4] ERROR backtype.storm.event - Error when processing event
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2531) ~[na:1.7.0_55]
+	at java.lang.Class.getDeclaredMethod(Class.java:2002) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.getInheritableMethod(ObjectStreamClass.java:1398) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.access$2200(ObjectStreamClass.java:72) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:506) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.<init>(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.lookup(ObjectStreamClass.java:365) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:602) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1622) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1517) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readArray(ObjectInputStream.java:1706) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1344) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at java.util.HashMap.readObject(HashMap.java:1184) ~[na:1.7.0_55]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1893) ~[na:1.7.0_55]
+275249 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435258 [Thread-18-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1c0f87> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435259 [Thread-18-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435260 [timer] WARN  org.apache.curator.ConnectionState - Connection attempt unsuccessful after 188569 (greater than max timeout of 20000). Resetting connection and trying again with a new connection.
+275248 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30005, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+265773 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+265771 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+435271 [ConnectionStateManager-0] WARN  org.apache.curator.framework.state.ConnectionStateManager - There are no ConnectionStateListeners registered.
+435256 [Thread-22-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@fc3678> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435252 [Thread-16-report-bolt] INFO  backtype.storm.daemon.task - Emitting: report-bolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@114f287> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435280 [Thread-16-report-bolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435281 [Thread-16-report-bolt] INFO  backtype.storm.daemon.task - Emitting: report-bolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@4f7301> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435254 [Thread-30-__acker] INFO  backtype.storm.daemon.task - Emitting: __acker __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@3ea7ae> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435253 [Thread-20-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@12b2337> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435248 [Thread-12-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@d4b6c4> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {__metrics=0}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {__metrics=0}]> #<DataPoint [__execute-count = {}]>]]
+435245 [Thread-10-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1d04e8b> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435294 [Thread-10-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435295 [Thread-10-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@d7146> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435296 [Thread-12-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435243 [Thread-26-tweet-spout] ERROR backtype.storm.util - Async loop died!
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:64) ~[na:1.7.0_55]
+	at java.lang.StringBuilder.<init>(StringBuilder.java:85) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream$BlockDataInputStream.readUTFBody(ObjectInputStream.java:3043) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream$BlockDataInputStream.readUTF(ObjectInputStream.java:2864) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readString(ObjectInputStream.java:1638) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1341) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readArray(ObjectInputStream.java:1706) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1344) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at java.util.HashMap.readObject(HashMap.java:1183) ~[na:1.7.0_55]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1893) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at edu.stanford.nlp.io.IOUtils.readObjectFromURLOrClasspathOrFileSystem(IOUtils.java:311) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.loadGenderNumber(Dictionaries.java:381) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.<init>(Dictionaries.java:547) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.<init>(Dictionaries.java:456) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.SieveCoreferenceSystem.<init>(SieveCoreferenceSystem.java:283) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.DeterministicCorefAnnotator.<init>(DeterministicCorefAnnotator.java:52) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.AnnotatorImplementations.coref(AnnotatorImplementations.java:173) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.StanfordCoreNLP$11.create(StanfordCoreNLP.java:749) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.AnnotatorPool.get(AnnotatorPool.java:85) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.StanfordCoreNLP.construct(StanfordCoreNLP.java:292) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+435243 [heartbeat-timer] ERROR backtype.storm.daemon.worker - Error when processing event
+java.lang.OutOfMemoryError: Java heap space
+	at sun.misc.Unsafe.defineClass(Native Method) ~[na:1.7.0_55]
+	at sun.reflect.ClassDefiner.defineClass(ClassDefiner.java:63) ~[na:1.7.0_55]
+	at sun.reflect.MethodAccessorGenerator$1.run(MethodAccessorGenerator.java:399) ~[na:1.7.0_55]
+	at sun.reflect.MethodAccessorGenerator$1.run(MethodAccessorGenerator.java:396) ~[na:1.7.0_55]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_55]
+	at sun.reflect.MethodAccessorGenerator.generate(MethodAccessorGenerator.java:395) ~[na:1.7.0_55]
+	at sun.reflect.MethodAccessorGenerator.generateSerializationConstructor(MethodAccessorGenerator.java:113) ~[na:1.7.0_55]
+	at sun.reflect.ReflectionFactory.newConstructorForSerialization(ReflectionFactory.java:331) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.getSerializableConstructor(ObjectStreamClass.java:1376) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.access$1500(ObjectStreamClass.java:72) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:493) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.<init>(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.lookup(ObjectStreamClass.java:365) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:602) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1622) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1517) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1622) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1517) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at java.util.HashMap.readObject(HashMap.java:1184) ~[na:1.7.0_55]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017) ~[na:1.7.0_55]
+435241 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435239 [Thread-28-__system] ERROR backtype.storm.util - Async loop died!
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2531) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetPublicMethods(Class.java:2651) ~[na:1.7.0_55]
+	at java.lang.Class.getMethods(Class.java:1467) ~[na:1.7.0_55]
+	at clojure.lang.Reflector.getMethods(Reflector.java:357) ~[clojure-1.5.1.jar:na]
+	at clojure.lang.Reflector.invokeNoArgInstanceMember(Reflector.java:296) ~[clojure-1.5.1.jar:na]
+	at clojure.tools.logging$eval1$fn__2.invoke(NO_SOURCE_FILE:0) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at clojure.tools.logging.impl$fn__39$G__17__46.invoke(impl.clj:16) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.daemon.executor$mk_task_receiver$fn__5564.invoke(executor.clj:397) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.disruptor$clojure_handler$reify__745.onEvent(disruptor.clj:58) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.utils.DisruptorQueue.consumeBatchToCursor(DisruptorQueue.java:125) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.utils.DisruptorQueue.consumeBatchWhenAvailable(DisruptorQueue.java:99) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.disruptor$consume_batch_when_available.invoke(disruptor.clj:80) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.daemon.executor$fn__5641$fn__5653$fn__5700.invoke(executor.clj:746) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.util$async_loop$fn__457.invoke(util.clj:431) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at clojure.lang.AFn.run(AFn.java:24) [clojure-1.5.1.jar:na]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+435302 [Thread-28-__system] ERROR backtype.storm.daemon.executor - 
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2531) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetPublicMethods(Class.java:2651) ~[na:1.7.0_55]
+	at java.lang.Class.getMethods(Class.java:1467) ~[na:1.7.0_55]
+	at clojure.lang.Reflector.getMethods(Reflector.java:357) ~[clojure-1.5.1.jar:na]
+	at clojure.lang.Reflector.invokeNoArgInstanceMember(Reflector.java:296) ~[clojure-1.5.1.jar:na]
+	at clojure.tools.logging$eval1$fn__2.invoke(NO_SOURCE_FILE:0) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at clojure.tools.logging.impl$fn__39$G__17__46.invoke(impl.clj:16) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.daemon.executor$mk_task_receiver$fn__5564.invoke(executor.clj:397) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.disruptor$clojure_handler$reify__745.onEvent(disruptor.clj:58) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.utils.DisruptorQueue.consumeBatchToCursor(DisruptorQueue.java:125) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.utils.DisruptorQueue.consumeBatchWhenAvailable(DisruptorQueue.java:99) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.disruptor$consume_batch_when_available.invoke(disruptor.clj:80) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.daemon.executor$fn__5641$fn__5653$fn__5700.invoke(executor.clj:746) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at backtype.storm.util$async_loop$fn__457.invoke(util.clj:431) ~[storm-core-0.9.2-incubating.jar:0.9.2-incubating]
+	at clojure.lang.AFn.run(AFn.java:24) [clojure-1.5.1.jar:na]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+435236 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435227 [Thread-8-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@8195b> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435225 [main-EventThread] WARN  backtype.storm.cluster - Received event :disconnected::none: with disconnected Zookeeper.
+435319 [Thread-8-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435322 [Thread-8-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@f3aae3> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435319 [Thread-14-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@d102ab> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435327 [Thread-14-infoBolt] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435329 [Thread-14-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@5cd73c> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435311 [Thread-26-tweet-spout] ERROR backtype.storm.daemon.executor - 
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.AbstractStringBuilder.<init>(AbstractStringBuilder.java:64) ~[na:1.7.0_55]
+	at java.lang.StringBuilder.<init>(StringBuilder.java:85) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream$BlockDataInputStream.readUTFBody(ObjectInputStream.java:3043) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream$BlockDataInputStream.readUTF(ObjectInputStream.java:2864) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readString(ObjectInputStream.java:1638) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1341) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readArray(ObjectInputStream.java:1706) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1344) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at java.util.HashMap.readObject(HashMap.java:1183) ~[na:1.7.0_55]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1893) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at edu.stanford.nlp.io.IOUtils.readObjectFromURLOrClasspathOrFileSystem(IOUtils.java:311) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.loadGenderNumber(Dictionaries.java:381) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.<init>(Dictionaries.java:547) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.Dictionaries.<init>(Dictionaries.java:456) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.dcoref.SieveCoreferenceSystem.<init>(SieveCoreferenceSystem.java:283) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.DeterministicCorefAnnotator.<init>(DeterministicCorefAnnotator.java:52) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.AnnotatorImplementations.coref(AnnotatorImplementations.java:173) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.StanfordCoreNLP$11.create(StanfordCoreNLP.java:749) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.AnnotatorPool.get(AnnotatorPool.java:85) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+	at edu.stanford.nlp.pipeline.StanfordCoreNLP.construct(StanfordCoreNLP.java:292) ~[yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar:na]
+435306 [Thread-24-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@a67709> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=3, capacity=1024, population=2}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435333 [Thread-24-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435335 [Thread-24-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@3084d2> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435290 [Thread-20-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435337 [Thread-20-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1d3ffdc> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435261 [Thread-18-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@791ddb> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435279 [Thread-22-top-words] INFO  backtype.storm.daemon.executor - Processing received message source: __system:-1, stream: __metrics_tick, id: {}, [60]
+435338 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc30005, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+435343 [Thread-22-top-words] INFO  backtype.storm.daemon.task - Emitting: top-words __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@1db253f> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {}]> #<DataPoint [__execute-count = {}]>]]
+435350 [Thread-3] ERROR backtype.storm.event - Error when processing event
+java.lang.OutOfMemoryError: Java heap space
+	at java.lang.Class.getDeclaredMethods0(Native Method) ~[na:1.7.0_55]
+	at java.lang.Class.privateGetDeclaredMethods(Class.java:2531) ~[na:1.7.0_55]
+	at java.lang.Class.getDeclaredMethod(Class.java:2002) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.getInheritableMethod(ObjectStreamClass.java:1398) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.access$2200(ObjectStreamClass.java:72) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:506) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass$2.run(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.security.AccessController.doPrivileged(Native Method) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.<init>(ObjectStreamClass.java:468) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.lookup(ObjectStreamClass.java:365) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.initNonProxy(ObjectStreamClass.java:602) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:1622) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1517) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1771) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readArray(ObjectInputStream.java:1706) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1344) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.defaultReadFields(ObjectInputStream.java:1990) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1915) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:1798) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1350) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:370) ~[na:1.7.0_55]
+	at java.util.HashMap.readObject(HashMap.java:1184) ~[na:1.7.0_55]
+	at sun.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.7.0_55]
+	at java.lang.reflect.Method.invoke(Method.java:606) ~[na:1.7.0_55]
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1017) ~[na:1.7.0_55]
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:1893) ~[na:1.7.0_55]
+435308 [Thread-12-infoBolt] INFO  backtype.storm.daemon.task - Emitting: infoBolt __metrics [#<TaskInfo backtype.storm.metric.api.IMetricsConsumer$TaskInfo@63f89> [#<DataPoint [__ack-count = {}]> #<DataPoint [__sendqueue = {write_pos=-1, read_pos=-1, capacity=1024, population=0}]> #<DataPoint [__receive = {write_pos=5, read_pos=4, capacity=1024, population=1}]> #<DataPoint [__process-latency = {}]> #<DataPoint [__transfer-count = {__metrics=0}]> #<DataPoint [__execute-latency = {}]> #<DataPoint [__fail-count = {}]> #<DataPoint [__emit-count = {__metrics=0}]> #<DataPoint [__execute-count = {}]>]]
+435357 [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2000] WARN  org.apache.zookeeper.server.NIOServerCnxn - caught end of stream exception
+org.apache.zookeeper.server.ServerCnxn$EndOfStreamException: Unable to read additional data from client sessionid 0x153dee4efc3000c, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:220) ~[zookeeper-3.4.5.jar:3.4.5-1392090]
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:208) [zookeeper-3.4.5.jar:3.4.5-1392090]
+	at java.lang.Thread.run(Thread.java:744) [na:1.7.0_55]
+435367 [heartbeat-timer] INFO  backtype.storm.util - Halting process: ("Error when processing an event")
+435368 [Thread-4] INFO  backtype.storm.util - Halting process: ("Error when processing an event")

@@ -52,13 +52,11 @@ public class ReportBolt extends BaseRichBolt
   public void execute(Tuple tuple)
   {
 	  String tweet = tuple.getStringByField("tweet");
-    String matchedEmoticon = tuple.getStringByField("matchedEmoticon");
     String geoinfo = tuple.getStringByField("geoinfo");
-    double matchedEmoticonScore= tuple.getIntegerByField("matchedEmoticonScore")*1.0;
     int personalSentiment = tuple.getIntegerByField("personalSentiment");
     double countrySentiment = tuple.getDoubleByField("countrySentiment");
     String countryName = tuple.getStringByField("countryName");
-    System.out.println("\t\t\tDEBUG ReportBolt: " + String.valueOf(matchedEmoticonScore) + ", Tweet countrySentiment:" + String.valueOf(countrySentiment));
+    System.out.println("\t\t\tDEBUG ReportBolt: " + "Tweet countrySentiment:" + String.valueOf(countrySentiment));
 
     redis.publish("WordCountTopology", geoinfo + "DELIMITER" + tweet + "DELIMITER" + String.valueOf(personalSentiment) + "DELIMITER" + countryName + "DELIMITER" + String.valueOf(countrySentiment));
   }

@@ -35,6 +35,7 @@ public class TopWords extends BaseRichBolt
 {
 	private OutputCollector collector;
 	private Map<String, Integer> SentimentDistribution;
+	private Map<String, Integer> CountMap;
 	Integer val;
 	double alpha;
 
@@ -47,10 +48,11 @@ public class TopWords extends BaseRichBolt
 	{
 		collector = outputCollector;
 		SentimentDistribution = new HashMap<String, Integer>();
+		CountMap = new HashMap<String, Integer>();
 		alpha = 0.2;
 	}
 
-	public double getAvg(String countryName)
+/*	public double getAvg(String countryName)
 	{
 		double sum = 0;
 		double total_count = 0.001;
@@ -63,7 +65,7 @@ public class TopWords extends BaseRichBolt
 			}
 		}
 		return sum/total_count;
-	}
+	}*/
 	
 	public void execute(Tuple tuple)
 	{
@@ -75,25 +77,35 @@ public class TopWords extends BaseRichBolt
 		int personalSentiment = tuple.getIntegerByField("sentiment");
 		String countryName = tuple.getStringByField("countryName");
 		String sentimentKey = countryName + " " + String.valueOf(personalSentiment);
-		double countrySentiment = 0.5;
+		double countrySentiment = 0;
 		
-		//SentimentAnalyzer.findSentiment(tweet);
-		
-		
-		
-		if (SentimentDistribution.get(sentimentKey) == null){
-			SentimentDistribution.put(sentimentKey,0);
+		// emoticon has higher privilege than word
+		if(matchedEmoticonScore != 0){
+			personalSentiment = matchedEmoticonScore;
 		}
-		SentimentDistribution.put(sentimentKey, SentimentDistribution.get(sentimentKey) + 1);
+
+		// count number of sentiment of countries
+		if (CountMap.get(countryName) == null) {
+			CountMap.put(countryName, 1);
+		}
+		else {
+			Integer val = CountMap.get(countryName);
+			CountMap.put(countryName, ++val);
+		}
+
+		// count sentiment of country
+		if (SentimentDistribution.get(countryName) == null){
+			SentimentDistribution.put(countryName, personalSentiment);
+		}
+		else {
+			Integer tmp = SentimentDistribution.get(countryName);
+			SentimentDistribution.put(countryName, tmp + personalSentiment);
+		}
 		
-		if(matchedEmoticonScore == 0){
-			/*Random rand = new Random();*/
-			countrySentiment = Math.max(Math.min(1.0, getAvg(countryName)*3), 0.0);
-		}
-		else
-		{
-			countrySentiment = (matchedEmoticonScore-1)/4.0;
-		}
+		// because sentiment range is between 0 to 4, to match 5 value to [0, 1]
+		countrySentiment = SentimentDistribution.get(countryName) / CountMap.get(countryName) / 4;
+		
+
 
 		System.out.println("\t\tTopWords\tDEBUG EMIT Tweet " + tweet + ", geoinfo" + geoinfo + ", matcedEmoticon: " + matchedEmoticon + ", sentimentKey: " + sentimentKey + ", countrySentiment: " + countrySentiment + ", personalSentiment: " + personalSentiment + ", countryName: " + countryName);
 		collector.emit(new Values(tweet, geoinfo, matchedEmoticonScore, matchedEmoticon, countrySentiment, personalSentiment, countryName));
@@ -106,7 +118,7 @@ public class TopWords extends BaseRichBolt
 		
 		
 		outputFieldsDeclarer.declare(
-				new Fields("tweet", "geoinfo", "matchedEmoticonScore", "matchedEmoticon", "countrySentiment", "personalSentiment", "countryName"));
+				new Fields("tweet", "geoinfo", "countrySentiment", "personalSentiment", "countryName"));
 	}
 
 }
