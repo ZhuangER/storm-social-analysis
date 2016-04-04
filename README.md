@@ -8,7 +8,13 @@ Ubuntu 14.04LTS
 
 
 ## Cluster
-Built on Microsoft Azure HDInsight, Ubuntu 14.04LTS
+Built on AWS, base image Ubuntu 14.04LTS <br/>
+zookeeper share physcial machine with nimbus and supervisor
+- 3 zookeeper nodes
+- 2 supervisor
+- 1 nimbus
+
+
 
 # Components
 - Apache Storm
