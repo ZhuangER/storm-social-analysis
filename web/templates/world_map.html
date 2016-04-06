@@ -143,7 +143,38 @@ var φ = d3.scale.linear()
     .domain([0, height])
     .range([90, -90]);*/
 
+    function componentToHex(c) {
+      var hex = c.toString(16);
+      return hex.length == 1 ? "0" + hex : hex;
+    }
 
+    function rgbToHex(r, g, b) {
+      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
+    function gridentColor(startR, startG, startB, mediumR, mediumG, mediumB, endR, endG, endB, sentiment) {
+      if(sentiment == 0.5) {
+        return rgbToHex(mediumR, mediumG, mediumB);
+      }
+      else if (sentiment == 0.0) {
+        return rgbToHex(startR, startG, startB);
+      }
+      else if (sentiment == 1.0) {
+        return rgbToHex(endR, endG, endB);
+      }
+      else if (sentiment < 0.5) {
+        var r = startR + (mediumR - startR) * sentiment * 2;
+        var g = startG + (mediumG - startG) * sentiment * 2;
+        var b = startB + (mediumB - startB) * sentiment * 2;
+        return rgbToHex(r, g, b);
+      }
+      else if (sentiment > 0.5) {
+        var r = mediumR + (endR - mediumR) * (sentiment - 0.5) * 2;
+        var g = mediumG + (endG - mediumG) * (sentiment - 0.5) * 2;
+        var b = mediumB + (endB - mediumB) * (sentiment - 0.5) * 2;
+        return rgbToHex(r, g, b);
+      }
+    }
 
 
 var tweetlist = [];
@@ -195,38 +226,7 @@ var updateViz =  function(){
 
     /*map.updateChoropleth({CA: 'green'})*/
     // grident color
-    function componentToHex(c) {
-      var hex = c.toString(16);
-      return hex.length == 1 ? "0" + hex : hex;
-    }
 
-    function rgbToHex(r, g, b) {
-      return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-    }
-
-    function gridentColor(startR, startG, startB, mediumR, mediumG, mediumB, endR, endG, endB, sentiment) {
-      if(sentiment == 0.5) {
-        return rgbToHex(mediumR, mediumG, mediumB);
-      }
-      else if (sentiment == 0.0) {
-        return rgbToHex(startR, startG, startB);
-      }
-      else if (sentiment == 1.0) {
-        return rgbToHex(endR, endG, endB);
-      }
-      else if (sentiment < 0.5) {
-        var r = startR + (mediumR - startR) * sentiment * 2;
-        var g = startG + (mediumG - startG) * sentiment * 2;
-        var b = startB + (mediumB - startB) * sentiment * 2;
-        return rgbToHex(r, g, b);
-      }
-      else if (sentiment > 0.5) {
-        var r = mediumR + (endR - mediumR) * (sentiment - 0.5) * 2;
-        var g = mediumG + (endG - mediumG) * (sentiment - 0.5) * 2;
-        var b = mediumB + (endB - mediumB) * (sentiment - 0.5) * 2;
-        return rgbToHex(r, g, b);
-      }
-    }
 
 
     for(key in hashCountrySentiment)
