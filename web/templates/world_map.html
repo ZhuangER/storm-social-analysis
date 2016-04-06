@@ -166,13 +166,13 @@ var φ = d3.scale.linear()
         var r = startR + (mediumR - startR) * sentiment * 2;
         var g = startG + (mediumG - startG) * sentiment * 2;
         var b = startB + (mediumB - startB) * sentiment * 2;
-        return rgbToHex(r, g, b);
+        return rgbToHex(Math.round(r), Math.round(g), Math.round(b));
       }
       else if (sentiment > 0.5) {
         var r = mediumR + (endR - mediumR) * (sentiment - 0.5) * 2;
         var g = mediumG + (endG - mediumG) * (sentiment - 0.5) * 2;
         var b = mediumB + (endB - mediumB) * (sentiment - 0.5) * 2;
-        return rgbToHex(r, g, b);
+        return rgbToHex(Math.round(r), Math.round(g), Math.round(b));
       }
     }
 
