@@ -41,6 +41,7 @@ html {
       var hashPersonalSentiment = {};
       var hashCountry = {};
       var hashCountrySentiment = {};
+      var sentimentWords = ["unhappy", "medium unhappy", "neutral", "medium happy", "happy"];
 
       source.onmessage = function (event) {
         var geoinfo = event.data.split("DELIMITER")[0];
@@ -192,7 +193,7 @@ var updateViz =  function(){
           var latitude = parseFloat(key.split(",")[0]);
           var longitude = parseFloat(key.split(",")[1]);
           if (longitude && latitude){
-          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'bubbleSentiment' + hashPersonalSentiment[key].toString(), sentiment: hashPersonalSentiment[key]});
+          tweetlist.push({latitude: latitude, longitude: longitude, radius: 5, sentence: hashSentence[key], country: hashCountry[key], fillKey: 'bubbleSentiment' + hashPersonalSentiment[key].toString(), sentiment: sentimentWords[hashPersonalSentiment[key]]});
           //data[key] = colors[Math.round(hashSentiment[key]*10)];
           //draw bubbles
           map.bubbles(tweetlist, {
