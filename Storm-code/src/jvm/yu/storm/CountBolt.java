@@ -28,11 +28,10 @@ import java.util.Locale;
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
 
-//import udacity.storm.spout.RandomSentenceSpout;
 import yu.storm.tools.SentimentAnalyzer;
 
 
-public class TopWords extends BaseRichBolt
+public class CountBolt extends BaseRichBolt
 {
 	private OutputCollector collector;
 	private Map<String, Integer> SentimentDistribution;

@@ -38,9 +38,9 @@ class TweetTopology
 
     // attach the parse tweet bolt using shuffle grouping
  /*   builder.setBolt("parse-tweet-bolt", new ParseTweetBolt(), 10).shuffleGrouping("tweet-spout");*/
-    builder.setBolt("infoBolt", new InfoBolt(), 10).shuffleGrouping("tweet-spout");
-    builder.setBolt("top-words", new TopWords(), 10).fieldsGrouping("infoBolt", new Fields("countryName"));
-    builder.setBolt("report-bolt", new ReportBolt(), 1).globalGrouping("top-words");
+    builder.setBolt("regex-bolt", new RegexBolt(), 10).shuffleGrouping("tweet-spout");
+    builder.setBolt("count-bolt", new CountBolt(), 10).fieldsGrouping("regex-bolt", new Fields("countryName"));
+    builder.setBolt("report-bolt", new ReportBolt(), 1).globalGrouping("count-bolt");
 
 
     // create the default config object

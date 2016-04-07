@@ -28,15 +28,10 @@ import com.google.common.base.Preconditions;
 /**
  * A bolt that matches emoticons and emoji in the tweet
  */
-public class InfoBolt extends BaseRichBolt
+public class RegexBolt extends BaseRichBolt
 {
   // To output tuples from this bolt to the next stage bolts, if any
   private OutputCollector collector;
-  
-  // Map to store the count of the words
-  
-//ArrayList<String> happyCodes = new ArrayList<String>(
- //   Arrays.asList("#"));
   
 
   // match positive emoticon
