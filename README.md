@@ -30,10 +30,8 @@ Map standard: Mercator
 Map scope: world
 
 # visualization
-basic map 
-image
-
-Bubbles
+d3.js
+![](https://github.com/ZhuangER/storm-social-analysis/blob/master/map_visualization.png)
 
 
 
