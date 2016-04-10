@@ -45,7 +45,7 @@ python app.py
 Add Twitter's access token, access secert into TopNTweetTopology.java <br>
 Submit topology to the storm nimbus
 ```
-storm jar target/udacity-storm-lesson1_stage2-0.0.1-SNAPSHOT-jar-with-dependencies.jar udacity.storm.ReporterExclamationTopology
+storm jar target/yu-storm-hack-0.0.1-SNAPSHOT-jar-with-dependencies.jar yu.storm.TweetTopology
 ```
 
 
