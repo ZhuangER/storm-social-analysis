@@ -152,9 +152,6 @@ public class TweetSpout extends BaseRichSpout
     //filter non-english tweets
     FilterQuery tweetFilterQuery = new FilterQuery(); 
     tweetFilterQuery.language(new String[]{"en"});
-
-    
- 
     
     // provide the handler for twitter stream
     twitterStream.addListener(new TweetListener());
