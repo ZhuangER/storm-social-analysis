@@ -1,4 +1,4 @@
-package yu.storm;
+package storm;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
@@ -19,12 +19,11 @@ import backtype.storm.utils.Utils;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.Locale;
 
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
 
-import yu.storm.tools.*;
+import storm.tools.*;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
@@ -50,7 +49,6 @@ public class ReportBolt extends BaseRichBolt
     redis = client.connect();
 
     CountryCodeConvert.initCountryCodeMapping();
-
   }
 
 
@@ -71,6 +69,6 @@ public class ReportBolt extends BaseRichBolt
 
   public void declareOutputFields(OutputFieldsDeclarer declarer)
   {
-    // nothing to add - since it is the final bolt
+    // final bolt
   }
 }

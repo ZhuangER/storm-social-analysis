@@ -110,7 +110,8 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>src/jvm</sourceDirectory>
+    <sourceDirectory>src/main</sourceDirectory>
+	<testSourceDirectory>src/test</testSourceDirectory>
     <plugins>
       <!--
         Bind the maven-assembly-plugin to the package phase

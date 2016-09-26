@@ -1,23 +1,13 @@
-package yu.storm;
+package storm;
 
 import backtype.storm.Config;
-import backtype.storm.LocalCluster;
-import backtype.storm.StormSubmitter;
-import backtype.storm.task.ShellBolt;
-import backtype.storm.topology.IRichBolt;
 import backtype.storm.topology.OutputFieldsDeclarer;
-import backtype.storm.topology.TopologyBuilder;
-import backtype.storm.topology.base.BaseBasicBolt;
 import backtype.storm.topology.base.BaseRichBolt;
-import backtype.storm.topology.base.BaseRichSpout;
+import backtype.storm.task.TopologyContext;
 import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
-//import udacity.storm.spout.RandomSentenceSpout;
 import backtype.storm.utils.Utils;
-import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.BasicOutputCollector;
-import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.OutputCollector;
 
 import java.util.HashMap;
@@ -27,8 +17,6 @@ import java.util.Locale;
 
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
-
-import yu.storm.tools.SentimentAnalyzer;
 
 
 public class CountBolt extends BaseRichBolt
@@ -101,8 +89,6 @@ public class CountBolt extends BaseRichBolt
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer)
 	{
-		
-		
 		outputFieldsDeclarer.declare(
 				new Fields("tweet", "geoinfo", "countrySentiment", "personalSentiment", "countryName"));
 	}
