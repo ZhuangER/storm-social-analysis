@@ -1,4 +1,4 @@
-package storm;
+package storm.spout;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
@@ -34,6 +34,8 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 /**
  * TweetSpout
  * A spout that uses Twitter streaming API for continuously
@@ -41,22 +43,18 @@ import java.util.regex.Pattern;
  */
 public class TweetSpout extends BaseRichSpout
 {
-  // Twitter API authentication credentials
-  String custkey, custsecret;
-  String accesstoken, accesssecret;
-
-  SpoutOutputCollector collector;
-
+  private String custkey, custsecret;
+  private String accesstoken, accesssecret;
+  private SpoutOutputCollector collector;
   // Twitter4j - twitter stream to get tweets
-  TwitterStream twitterStream;
-
+  private TwitterStream twitterStream;
   // Shared queue for getting buffering tweets received
-  LinkedBlockingQueue<String> queue = null;
+  private LinkedBlockingQueue<String> queue = null;
 
-  // Class for listening on the tweet stream - for twitter4j
+  private static Logger LOG = Logger.getLogger(TweetSpout.class);
+
   private class TweetListener implements StatusListener {
-
-    // Implement the callback function when a tweet arrives
+    // The callback function when a tweet arrives
     @Override
     public void onStatus(Status status) {
       // add the tweet into the queue buffer
@@ -108,10 +106,8 @@ public class TweetSpout extends BaseRichSpout
 
   @Override
   public void open( Map map, TopologyContext topologyContext, SpoutOutputCollector spoutOutputCollector) {
-    // create the buffer to block tweets
     queue = new LinkedBlockingQueue<String>(1000);
     SentenceSentiment.init();
-    // save the output collector for emitting tuples
     collector = spoutOutputCollector;
 
     // build the config with credentials for twitter 4j
@@ -121,7 +117,6 @@ public class TweetSpout extends BaseRichSpout
                                      .setOAuthAccessToken(accesstoken)
                                      .setOAuthAccessTokenSecret(accesssecret);
 
-    // create the twitter stream factory with the config
     TwitterStreamFactory fact = new TwitterStreamFactory(config.build());
 
     // get an instance of twitter stream
@@ -135,37 +130,44 @@ public class TweetSpout extends BaseRichSpout
 
     // start the sampling of tweets
     twitterStream.sample();
-  
   }
 
   @Override
   public void nextTuple() {
-    // try to pick a tweet from the buffer
-    String ret = queue.poll();
-    String geoInfo;
-    String originalTweet;
-    String extractedTweet;
-    // if no tweet is available, wait for 50 ms and return
-    if (ret == null) {
-      Utils.sleep(50);
-      return;
-    } 
-    else {
-        geoInfo = ret.split("DELIMITER")[1];
-        originalTweet = ret.split("DELIMITER")[0];
+
+    try {
+      // try to pick a tweet from the buffer
+      String ret = queue.poll();
+      String geoInfo;
+      String originalTweet;
+      String extractedTweet;
+      // if no tweet is available, wait for 50 ms and return
+      if (ret == null) {
+        Utils.sleep(50);
+        return;
+      } 
+      else {
+          geoInfo = ret.split("DELIMITER")[1];
+          originalTweet = ret.split("DELIMITER")[0];
+      }
+      
+      if(geoInfo != null && !geoInfo.equals("n/a")) {
+          LOG.debug("\t DEBUG SPOUT: BEFORE EXTRACTOR \n");
+          LOG.debug("\t " + originalTweet + "\n");
+          extractedTweet = TweetExtractor.tweetRemover(originalTweet);
+          LOG.debug("\t DEBUG SPOUT: AFTER EXTRACTOR \n");
+          LOG.debug("\t " + extractedTweet);
+          LOG.debug("\t DEBUG SPOUT: BEFORE SENTIMENT \n");
+          int sentiment = SentenceSentiment.findSentiment(extractedTweet);
+          LOG.debug("\t DEBUG SPOUT: AFTER SENTIMENT " +  Integer.toString(sentiment) + " for \t" + originalTweet + "\n" );
+          collector.emit(new Values(ret, sentiment));
+      }
     }
-    
-    if(geoInfo != null && !geoInfo.equals("n/a")) {
-        System.out.print("\t DEBUG SPOUT: BEFORE EXTRACTOR \n");
-        System.out.print("\t " + originalTweet + "\n");
-        extractedTweet = TweetExtractor.tweetRemover(originalTweet);
-        System.out.print("\t DEBUG SPOUT: AFTER EXTRACTOR \n");
-        System.out.print("\t " + extractedTweet);
-        System.out.print("\t DEBUG SPOUT: BEFORE SENTIMENT \n");
-        int sentiment = SentenceSentiment.findSentiment(extractedTweet);
-        System.out.print("\t DEBUG SPOUT: AFTER SENTIMENT (" + String.valueOf(sentiment) + ") for \t" + originalTweet + "\n");
-        collector.emit(new Values(ret, sentiment));
+    catch (Exception e) {
+      LOG.debug("\t DEBUG SPOUT:\tTweetSpout Exception in Execute function\n");
+      LOG.debug(e);
     }
+
   }
 
   @Override

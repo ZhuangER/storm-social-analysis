@@ -1,4 +1,4 @@
-package storm;
+package storm.bolt;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
@@ -27,16 +27,15 @@ import com.google.common.base.Preconditions;
 
 import storm.tools.EmoticonSentiment;
 
+import org.apache.log4j.Logger;
+
 /**
  * A bolt that matches emoticons and emoji in the tweet
  */
-public class RegexBolt extends BaseRichBolt
-{
+public class RegexBolt extends BaseRichBolt {
   private OutputCollector collector;
   private Map<String, String> emoticonAndScore;
-  
-  private static final Charset UTF_8 = Charset.forName("UTF-8");
-
+  private static Logger LOG = Logger.getLogger(RegexBolt.class);
 
   @Override
   public void prepare( Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
@@ -57,21 +56,18 @@ public class RegexBolt extends BaseRichBolt
       int matchedEmoticonScore = Integer.parseInt(emoticonAndScore.get("score"));
       String matchedEmoticon = emoticonAndScore.get("emoticon");
       
-      // DEBUG
-      // System.out.println("Emotion: " + matchedEmoticon + " Score: " + emoticonAndScore.get("score"));
+      LOG.debug("\tDEBUG RegexBolt\t Emotion: " + matchedEmoticon + " Score: " + emoticonAndScore.get("score") + "\n");
 
     	collector.emit(new Values(originalTweet,geoinfo,matchedEmoticonScore, matchedEmoticon, sentiment, countryName));
 	  } 
     catch(Exception e) {
-		  e.printStackTrace();
+      LOG.debug("RegexBolt Exception in Execute function\n");
+      LOG.debug(e);
 	  }
   }
-    
-  
   
   @Override
-  public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer)
-  {
+  public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {
 	  outputFieldsDeclarer.declare(new Fields("original-tweet", "geoinfo", "matchedEmoticonScore", "matchedEmoticon", "sentiment", "countryName"));
   }
 }
